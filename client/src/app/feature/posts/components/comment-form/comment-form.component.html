@@ -1,0 +1,23 @@
+<div class="comment-form">
+  <form [formGroup]="commentForm" (ngSubmit)="onFormSubmit()">
+    <div class="form-group">
+      <textarea
+        rows="5"
+        placeholder="Add Comment"
+        formControlName="text"
+        class="form-control"
+        [maxlength]="maxLength"
+      ></textarea>
+      @if(isSubbmited() && commentForm.get("text").touched &&
+      !commentForm.get("text").value.length ){
+      <p class="form-error">Enter a comment before publish!</p>
+      }
+      <div class="form-btns">
+        <div>
+          {{ commentForm.controls.text.value.length }} / {{ maxLength }}
+        </div>
+        <app-button text="Publish" type="submit" />
+      </div>
+    </div>
+  </form>
+</div>

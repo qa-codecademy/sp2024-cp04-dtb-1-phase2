@@ -1,0 +1,26 @@
+<div class="rating-container">
+  @for(ratingPair of ratings(); track ratingPair; let even = $even) {
+  <div class="star">
+    <div
+      class="left"
+      (mouseenter)="onMouseEnter(ratingPair[0])"
+      (mouseleave)="onMouseLeave()"
+      (click)="onClick(ratingPair[0])"
+      [ngClass]="{
+        'hovered-left': ratingPair[0] <= hoverValue() && 'hovered-left',
+        selected: ratingPair[0] <= currentValue()
+      }"
+    ></div>
+    <div
+      class="right"
+      (mouseenter)="onMouseEnter(ratingPair[1])"
+      (mouseleave)="onMouseLeave()"
+      (click)="onClick(ratingPair[1])"
+      [ngClass]="{
+        'hovered-left': ratingPair[1] <= hoverValue() && 'hovered-right',
+        selected: ratingPair[1] <= currentValue()
+      }"
+    ></div>
+  </div>
+  }
+</div>

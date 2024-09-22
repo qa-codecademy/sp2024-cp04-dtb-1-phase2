@@ -1,0 +1,30 @@
+<header class="Header">
+  <div class="logo-div" routerLink="/">
+    <img src="/images/logo.png" width="200px" />
+  </div>
+  <nav class="Navbar">
+    <ul>
+      <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Posts</a></li>
+      @if(currentUser()){
+      <li><a routerLink="/add-post" routerLinkActive="active">Add post</a></li>
+      }
+      <li><a routerLink="/about" routerLinkActive="active">About</a></li>
+      <li><a routerLink="/contact" routerLinkActive="active">Contact</a></li>
+
+      @if(currentUser()){
+      <li class="dropdown">
+        <div class="dropbtn">
+          <i class="fa-solid fa-user"></i>
+          {{ currentUser()?.username }}
+        </div>
+        <div class="dropdown-content">
+          <a (click)="onLogOutClick()" routerLinkActive="active">Logout</a>
+        </div>
+      </li>
+      } @else {
+      <li><a routerLink="/login" routerLinkActive="active">Login</a></li>
+      }
+      <li routerLinkActive="active"><i class="fa-solid fa-lightbulb"></i></li>
+    </ul>
+  </nav>
+</header>

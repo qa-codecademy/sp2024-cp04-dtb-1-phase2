@@ -1,0 +1,61 @@
+.rating-container {
+  display: flex;
+  justify-content: center;
+  border-radius: 30px;
+  padding: 0 10px;
+  font-size: 28px;
+}
+
+.star {
+  position: relative;
+  width: 30px;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+
+  > div {
+    width: 50%;
+    height: 100%;
+
+    &::before {
+      font-family: "FontAwesome";
+      position: absolute;
+    }
+  }
+}
+
+.left {
+  &::before {
+    top: 0;
+    left: 0;
+    content: "\f006";
+  }
+}
+
+.right {
+  &::before {
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    transform: scaleX(-1);
+    content: "";
+  }
+}
+
+.hovered-left {
+  &::before {
+    content: "\f5c0";
+  }
+}
+
+.hovered-right {
+  &::before {
+    content: "\f005";
+  }
+}
+
+.selected {
+  color: var(--raiting-star);
+}

@@ -1,0 +1,34 @@
+<section class="forms-page">
+  <div class="forms-container">
+    <div class="logo-image">
+      <img src="/images/only logo.png" alt="Logo" width="138" />
+    </div>
+    <h1 class="heading">Login</h1>
+    <form class="form" [formGroup]="loginForm" (ngSubmit)="onFormSubmit()">
+      <div class="form-group">
+        <input formControlName="email" placeholder="Email" type="text" />
+      </div>
+      <div class="form-group">
+        <input formControlName="password" placeholder="Password" type="password" />
+      </div>
+      <div class="form-login-remember">
+        <div class="checkbox">
+          <label>Remember me?</label>
+          <input class="remember" type="checkbox" />
+        </div>
+      </div>
+      <div>
+        @if(loginForm.invalid && isSubmitted() && loginForm.touched){
+        <p class="form-error">All fields are required</p>
+        }
+      </div>
+      <div class="login-form-button-div">
+        <app-button text="Log in" class="login-button" type="submit" />
+      </div>
+      <div class="form-message">
+        Don't have an account yet?
+        <a routerLink="/register">Sign Up</a>
+      </div>
+    </form>
+  </div>
+</section>

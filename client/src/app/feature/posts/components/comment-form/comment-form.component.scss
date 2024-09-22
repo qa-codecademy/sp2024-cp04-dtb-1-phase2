@@ -1,0 +1,34 @@
+.comment-form {
+  textarea {
+    border-radius: 8px;
+    width: 650px;
+    padding: 15px;
+    font-size: 16px;
+    background-color: rgba(255, 255, 255, 0.3);
+    resize: vertical;
+    color: var(--font-white);
+    font-family: "Nino", sans-serif;
+
+    &::placeholder {
+      opacity: 1;
+      color: var(--font-white);
+      font-weight: 200;
+    }
+
+    &:focus {
+      border-color: var(--translucent-color);
+      outline: none;
+    }
+  }
+
+  .form-btns {
+    display: flex;
+    justify-content: end;
+    gap: 20px;
+    align-items: center;
+    font-size: 18px;
+    padding: 20px 0;
+    color: var(--font-white);
+    font-weight: 300;
+  }
+}

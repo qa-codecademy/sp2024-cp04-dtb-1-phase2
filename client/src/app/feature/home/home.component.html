@@ -1,0 +1,30 @@
+<section class="home-page">
+  <div class="home-post-list-container">
+    <div class="search-filters-container">
+      <div class="search-form">
+        <div class="search-wrapper">
+          <i class="fas fa-search search-icon"></i>
+          <input type="text" class="search-input" placeholder="Search posts..." [(ngModel)]="searchValue" />
+        </div>
+      </div>
+    </div>
+    <div class="post-list-container">
+      <div class="post-list-container-heading">
+        <span><img src="/images/only logo.png" /></span>
+        @if(searchValue().length){
+        <h2>Searched posts:</h2>
+        } @else {
+        <h2>Posts</h2>
+        }
+      </div>
+      <app-posts-list [searchValue]="searchValue()"></app-posts-list>
+    </div>
+  </div>
+  <div class="home-ads-container">
+    <div>
+      <img src="/images/ad-images/ad-one.jpg" />
+    </div>
+    <div><img src="/images/ad-images/ad-two.jpg" /></div>
+    <div><img src="/images/ad-images/ad-three.jpg" /></div>
+  </div>
+</section>

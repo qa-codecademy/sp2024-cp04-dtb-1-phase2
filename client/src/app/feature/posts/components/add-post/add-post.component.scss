@@ -1,0 +1,15 @@
+.add-post-page {
+  min-height: 800px;
+  display: grid;
+  place-items: center;
+}
+
+.form-container {
+  width: 600px;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  padding: 50px;
+}

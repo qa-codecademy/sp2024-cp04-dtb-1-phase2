@@ -1,0 +1,18 @@
+<div class="comments-list">
+  <ul>
+    @for(comment of comments(); track comment.id) {
+    <li class="comment-item">
+      <div class="comment-info">
+        <span> {{ comment.text }}</span>
+        <span>
+          <i class="fa-solid fa-user"></i>
+          {{ comment.user.username }}
+        </span>
+      </div>
+      <div class="info-date">
+        {{ comment.date | date : "short" }}
+      </div>
+    </li>
+    }
+  </ul>
+</div>

@@ -1,0 +1,21 @@
+<form class="form" [formGroup]="postForm" (ngSubmit)="onFormSubbmit()">
+  <div class="form-group">
+    <label for="title">Title</label>
+    <input id="title" type="text" formControlName="title" />
+  </div>
+  <div class="form-group">
+    <label for="image">Image</label>
+    <input id="image" type="text" formControlName="image" />
+  </div>
+  <div class="form-group">
+    <label for="text">Text</label>
+    <textarea id="text" type="text" formControlName="text"></textarea>
+  </div>
+  <div class="form-group">
+    <label for="tags">Tags</label>
+    <input type="text" formControlName="tags" />
+  </div>
+  <div class="login-form-button-div">
+    <app-button text="Add post" class="register-button" type="submit" />
+  </div>
+</form>
