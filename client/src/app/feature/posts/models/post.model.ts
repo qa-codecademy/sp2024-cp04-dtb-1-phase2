@@ -52,6 +52,7 @@ export interface PostComment {
   text: string;
   date: string;
   user: {
+    id: string;
     username: string;
   };
 }

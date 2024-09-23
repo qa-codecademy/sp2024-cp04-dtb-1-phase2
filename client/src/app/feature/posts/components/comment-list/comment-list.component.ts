@@ -1,6 +1,7 @@
-import { Component, input } from '@angular/core';
+import { Component, inject, input } from '@angular/core';
 import { PostComment } from '../../models/post.model';
 import { DatePipe } from '@angular/common';
+import { AuthService } from '../../../../core/services/auth.service';
 
 @Component({
   selector: 'app-comment-list',
@@ -11,4 +12,5 @@ import { DatePipe } from '@angular/common';
 })
 export class CommentListComponent {
   comments = input.required<PostComment[]>();
+  currentUser = inject(AuthService).currentUser;
 }

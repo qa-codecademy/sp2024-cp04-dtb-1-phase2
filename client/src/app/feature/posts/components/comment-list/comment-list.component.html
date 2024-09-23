@@ -4,13 +4,23 @@
     <li class="comment-item">
       <div class="comment-info">
         <span> {{ comment.text }}</span>
+        @if(comment.user.id === currentUser().id){
+        <div class="post-button-controls-container">
+          <button class="edit-button">
+            <i class="fa-regular fa-pen-to-square"></i>
+          </button>
+          <button class="delete-button">
+            <i class="fa-solid fa-trash"></i>
+          </button>
+        </div>
+        }
+      </div>
+      <div class="info-date">
+        {{ comment.date | date : "short" }}
         <span>
           <i class="fa-solid fa-user"></i>
           {{ comment.user.username }}
         </span>
-      </div>
-      <div class="info-date">
-        {{ comment.date | date : "short" }}
       </div>
     </li>
     }
