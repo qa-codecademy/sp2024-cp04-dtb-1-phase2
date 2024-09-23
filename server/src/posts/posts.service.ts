@@ -11,6 +11,7 @@ export class PostService {
   constructor(@InjectRepository(Post) private postsRepo: Repository<Post>) {}
 
   create(createPostDto: CreatePostDto) {
+    console.log('from createpost dto', createPostDto);
     return this.postsRepo.save({
       text: createPostDto.text,
       title: createPostDto.title,
@@ -116,7 +117,7 @@ export class PostService {
   }
 
   async update(id: number, updatePostDto: UpdatePostDto) {
-    const foundPost = await this.postsRepo.findBy({ id });
+    const foundPost = await this.postsRepo.findOneBy({ id });
 
     Object.assign(foundPost, updatePostDto);
 

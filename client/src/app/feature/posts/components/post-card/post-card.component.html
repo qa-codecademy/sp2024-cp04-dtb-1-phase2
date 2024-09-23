@@ -6,6 +6,11 @@
       <p>
         {{ post().text }}
       </p>
+      <div class="tags-container">
+        @for(tag of post().tags; track $index){
+        <span class="tag-span">#{{ tag }} </span>
+        }
+      </div>
       <div class="post-button-container">
         <app-button
           class="button"

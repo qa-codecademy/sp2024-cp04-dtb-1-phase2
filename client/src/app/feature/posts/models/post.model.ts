@@ -12,6 +12,29 @@ export interface Post {
   user: User;
 }
 
+export interface PostForm {
+  title: string;
+  image: string;
+  text: string;
+  tags: string;
+}
+
+export interface CreatePostReq {
+  userId: string;
+  title: string;
+  image: string;
+  text: string;
+  tags: string[];
+}
+
+export interface UpdatePostReq {
+  userId: string;
+  title: string;
+  image: string;
+  text: string;
+  tags: string[];
+}
+
 export interface PostRating {
   id: number;
   user: User;

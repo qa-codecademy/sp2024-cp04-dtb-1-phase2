@@ -1,16 +1,21 @@
 import { inject, Injectable, OnInit, signal } from '@angular/core';
 import { PostsApiService } from './posts-api.service';
 import {
+  CreatePostReq,
   Post,
   PostComment,
+  PostForm,
   PostRating,
+  UpdatePostReq,
 } from '../../feature/posts/models/post.model';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
 })
 export class PostsService {
   private apiService = inject(PostsApiService);
+  private router = inject(Router);
 
   posts = signal<Post[]>([]);
   totalPostCount = signal<number>(0);
@@ -38,6 +43,32 @@ export class PostsService {
         this.getPostComments(postId);
       },
       error: (error) => console.log(error),
+    });
+  }
+
+  createPost(postData: CreatePostReq) {
+    this.apiService.createPost(postData).subscribe({
+      next: (value) => {
+        console.log('Post created!');
+        console.log(value);
+        this.router.navigate([`post-details/${value.id}`]);
+      },
+      error: (error) => {
+        console.log(error);
+      },
+    });
+  }
+
+  editPost(postId: number, postData: UpdatePostReq) {
+    console.log(postData);
+    this.apiService.patchPost(postId, postData).subscribe({
+      next: () => {
+        console.log('Post edited!');
+        this.router.navigate([`post-details/${this.selectedPost().id}`]);
+      },
+      error: (error) => {
+        console.log(error);
+      },
     });
   }
 

@@ -2,10 +2,13 @@ import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { BASE_URL } from '../conststants/core.conststants';
 import {
+  CreatePostReq,
   GetPostCommentsResponse,
   GetPostResponse,
   Post,
+  PostForm,
   PostRating,
+  UpdatePostReq,
 } from '../../feature/posts/models/post.model';
 
 @Injectable({
@@ -26,6 +29,14 @@ export class PostsApiService {
 
   fetchPostById(postId: number) {
     return this.http.get<Post>(`${BASE_URL}/posts/${postId}`);
+  }
+
+  createPost(postData: CreatePostReq) {
+    return this.http.post<Post>(`${BASE_URL}/posts`, postData);
+  }
+
+  patchPost(postId: number, postData: UpdatePostReq) {
+    return this.http.patch(`${BASE_URL}/posts/${postId}`, postData);
   }
 
   deletePost(postId: number) {

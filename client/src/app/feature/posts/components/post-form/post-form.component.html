@@ -13,9 +13,17 @@
   </div>
   <div class="form-group">
     <label for="tags">Tags</label>
-    <input type="text" formControlName="tags" />
+    <input
+      type="text"
+      formControlName="tags"
+      placeholder="It,Computers,Network..."
+    />
   </div>
   <div class="login-form-button-div">
+    @if(isPreviewed()){
     <app-button text="Add post" class="register-button" type="submit" />
+    } @else {
+    <app-button text="Preview" type="button" (btnClick)="onPreviewClick()" />
+    }
   </div>
 </form>

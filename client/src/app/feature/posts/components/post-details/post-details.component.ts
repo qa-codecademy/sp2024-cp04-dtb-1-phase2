@@ -51,10 +51,16 @@ export class PostDetailsComponent implements OnInit {
     );
   }
 
-  onDeletePost() {
-    this.postsService.deletePost(this.post().id);
+  onPostNavigate(route: 'delete' | 'edit') {
+    if (route === 'delete') {
+      this.postsService.deletePost(this.post().id);
 
-    this.router.navigate(['/']);
+      this.router.navigate(['/']);
+    }
+
+    if (route === 'edit') {
+      this.router.navigate([`edit-post/${this.post().id}`]);
+    }
   }
 
   onLoadmore() {
