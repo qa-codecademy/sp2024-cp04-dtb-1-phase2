@@ -4,34 +4,27 @@
   max-width: 1000px;
   background-color: var(--translucent-color);
   border-radius: 10px;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
   transition: box-shadow 0.3s ease;
-
-  &:hover {
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-  }
 
   .post-page-header-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 25px;
-    border-bottom: 1px solid //var(--font-white);
-      var(--font-color-black-light);
+    border-bottom: 1px solid var(--font-color);
     padding-bottom: 15px;
 
     h2.post-page-hader-h2 {
       font-size: 28px;
       font-weight: 600;
-      color: var(--font-color-black-light);
-      //color: var(--font-white);
+      color: var(--font-color);
       margin: 0;
     }
 
     small {
       font-size: 14px;
-      color: var(--font-color-black-light);
-      //color: var(--font-white);
+      color: var(--font-color);
     }
 
     .post-button-controls-container {
@@ -43,7 +36,7 @@
       .delete-button {
         background-color: var(--font-blue);
         border: none;
-        color: var(--font-white);
+        color: var(--delete-edit-button-font);
         padding: 10px 15px;
         font-size: 18px;
         border-radius: 8px;
@@ -86,8 +79,7 @@
     background-color: rgba(255, 255, 255, 0.3);
     border-radius: 8px;
     font-size: 16px;
-    color: var(--font-color-black-light);
-    //color: var(--font-white);
+    color: var(--font-color);
 
     strong {
       font-weight: 800;
@@ -105,15 +97,13 @@
   .post-comments-container {
     margin-top: 40px;
     padding-top: 20px;
-    border-top: 1px solid //var(--font-white);
-      var(--font-color-black-light);
+    border-top: 1px solid var(--font-color);
 
     h2 {
       font-size: 23px;
       font-weight: 700;
       margin-bottom: 20px;
-      color: var(--font-color-black-light);
-      //color: var(--font-white);
+      color: var(--font-color);
       text-align: center;
     }
 

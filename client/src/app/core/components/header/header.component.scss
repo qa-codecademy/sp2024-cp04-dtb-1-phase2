@@ -21,14 +21,12 @@
 
       li {
         margin-left: 20px;
-        color: var(--font-color-black-light);
-        //color: var(--font-white);
+        color: var(--font-color);
 
         a {
           text-decoration: none;
           font-weight: 300;
-          color: var(--font-color-black-light);
-          //color: var(--font-white);
+          color: var(--font-color);
           font-size: 17px;
           padding: 8px 15px;
           border-radius: 5px;
@@ -36,8 +34,8 @@
 
           &:hover,
           &.active {
-            background-color: var(--font-white);
-            color: var(--font-blue);
+            background-color: var(--acitve-backgruon);
+            color: var(--active-color);
           }
         }
       }
@@ -62,8 +60,7 @@
   font-size: 16px;
   border: none;
   outline: none;
-  color: var(--font-color-black-light);
-  //color: var(--font-white);
+  color: var(--font-color);
   background-color: inherit;
   margin: 0;
 
@@ -75,8 +72,8 @@
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: var(--background-color-card);
-  color: var(--font-blue);
+  background-color: var(--acitve-backgruon);
+  color: var(--active-color);
   min-width: 85px;
   border-radius: 5px;
   top: 40px;

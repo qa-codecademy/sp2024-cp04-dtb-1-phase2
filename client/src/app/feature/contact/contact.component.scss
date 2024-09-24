@@ -10,7 +10,7 @@
     width: 100%;
     max-width: 1200px;
     background-color: var(--translucent-color);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     padding: 20px;
     border-radius: 3px;
   }
@@ -25,8 +25,7 @@
       h3 {
         font-size: 24px;
         margin-bottom: 15px;
-        color: var(--font-color-black-light);
-        //color: var(--font-white);
+        color: var(--font-color);
       }
 
       .formBox {
@@ -49,17 +48,22 @@
             font-size: 14px;
             padding-top: 15px;
             margin-bottom: 5px;
-            color: var(--font-color-black-light);
-            //color: var(--font-white);
+            color: var(--font-color);
           }
 
           input,
           textarea {
             width: 100%;
             padding: 10px;
-            border: 1px solid #ccc;
+            border: 1px solid var(--translucent-color);
             border-radius: 5px;
             font-size: 13px;
+
+            &:focus {
+              border-color: var(--translucent-color);
+              background-color: #fff;
+              outline: none;
+            }
           }
 
           textarea {
@@ -69,7 +73,7 @@
 
           p {
             font-size: 12px;
-            color: #999;
+            color: var(--font-color);
             margin-top: 5px;
           }
         }
@@ -87,8 +91,7 @@
       h3 {
         font-size: 24px;
         margin-bottom: 15px;
-        color: var(--font-color-black-light);
-        //color: var(--font-white);
+        color: var(--font-color);
       }
 
       .infoBox {
@@ -99,14 +102,12 @@
 
           span {
             margin-right: 10px;
-            color: var(--font-color-black-light);
-            //color: var(--font-white);
+            color: var(--font-color);
           }
 
           .adress-p {
             margin: 0;
-            color: var(--font-color-black-light);
-            //color: var(--font-white);
+            color: var(--font-color);
           }
 
           a {

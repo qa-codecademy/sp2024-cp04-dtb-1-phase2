@@ -21,8 +21,7 @@
     .comment-info {
       display: flex;
       justify-content: space-between;
-      color: var(--font-color-black-light);
-      //color: var(--font-white);
+      color: var(--font-color);
     }
 
     .info-date {
@@ -31,8 +30,7 @@
       text-align: right;
       padding-top: 10px;
       gap: 5px;
-      color: var(--font-color-black-light);
-      //color: var(--font-white);
+      color: var(--font-color);
     }
   }
 }
@@ -46,10 +44,10 @@
   .delete-button {
     background-color: var(--font-blue);
     border: none;
-    color: var(--font-white);
+    color: var(--delete-edit-button-font);
     padding: 5px;
     font-size: 14px;
-    border-radius: 8px;
+    border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.2s ease;
 

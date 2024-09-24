@@ -6,8 +6,7 @@
   h1 {
     font-size: 60px;
     margin-bottom: 20px;
-    color: var(--font-color-black-light);
-    //color: var(--font-white);
+    color: var(--font-color);
   }
 }
 
@@ -18,8 +17,7 @@
     max-width: 800px;
     margin: 0 auto;
     padding-top: 20px;
-    color: var(--font-color-black-light);
-    //color: var(--font-white);
+    color: var(--font-color);
   }
 }
 
@@ -29,8 +27,7 @@
   align-items: center;
   justify-content: center;
   text-align: left;
-  color: var(--font-color-black-light);
-  //color: var(--font-white);
+  color: var(--font-color);
 }
 
 .about-img img {
@@ -56,8 +53,7 @@
 .team h1 {
   font-size: 45px;
   margin-bottom: 30px;
-  color: var(--font-color-black-light);
-  //color: var(--font-white);
+  color: var(--font-color);
 }
 
 .team-cards {
@@ -70,7 +66,7 @@
 
 .card {
   background-color: var(--translucent-color);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
   overflow: hidden;
   transition: transform 0.3s, box-shadow 0.3s;
   width: 280px;
@@ -99,18 +95,18 @@
 
 .card-name {
   font-size: 2rem;
-  color: var(--font-color-black-light);
-  //color: var(--font-white);
+  color: var(--font-color);
+  font-weight: 400;
 }
 
 .card-role {
   font-size: 1rem;
-  color: var(--font-color-black-light);
-  //color: var(--font-white);
+  color: var(--font-color);
+  font-weight: 400;
 }
 
 .card-email {
   font-size: 1rem;
-  color: var(--font-color-black-light);
-  //color: var(--font-white);
+  color: var(--font-color);
+  font-weight: 400;
 }

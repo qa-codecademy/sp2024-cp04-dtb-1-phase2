@@ -10,11 +10,9 @@
     </div>
     <div class="post-list-container">
       <div class="post-list-container-heading">
-        <span><img src="/images/only logo.png" /></span>
         @if(searchValue().length){
         <h2>Searched posts:</h2>
         } @else {
-        <h2>Posts</h2>
         }
       </div>
       <app-posts-list [searchValue]="searchValue()"></app-posts-list>

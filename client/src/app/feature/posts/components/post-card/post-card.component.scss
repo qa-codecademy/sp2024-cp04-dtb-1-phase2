@@ -29,8 +29,7 @@
   h2,
   p {
     margin: 0;
-    color: var(--font-color-black-light);
-    //color: var(--font-white);
+    color: var(--font-color);
   }
 }
 .post-info {
@@ -58,5 +57,5 @@
 }
 
 .tag-span {
-  color: var(--border-hover-color);
+  color: var(--font-blue);
 }
