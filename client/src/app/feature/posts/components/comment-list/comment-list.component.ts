@@ -1,7 +1,8 @@
-import { Component, inject, input } from '@angular/core';
-import { PostComment } from '../../models/post.model';
+import { Component, inject, input, output } from '@angular/core';
+import { PostComment, PostCommentForm } from '../../models/post.model';
 import { DatePipe } from '@angular/common';
 import { AuthService } from '../../../../core/services/auth.service';
+import { PostsService } from '../../../../core/services/posts.service';
 
 @Component({
   selector: 'app-comment-list',
@@ -11,6 +12,16 @@ import { AuthService } from '../../../../core/services/auth.service';
   styleUrl: './comment-list.component.scss',
 })
 export class CommentListComponent {
+  private postsService = inject(PostsService);
   comments = input.required<PostComment[]>();
   currentUser = inject(AuthService).currentUser;
+  commnetOutput = output<PostComment>();
+
+  onCommentDelete(commentId: number) {
+    this.postsService.deleteComment(commentId);
+  }
+
+  odCommentEdit(comment: PostComment) {
+    this.commnetOutput.emit(comment);
+  }
 }

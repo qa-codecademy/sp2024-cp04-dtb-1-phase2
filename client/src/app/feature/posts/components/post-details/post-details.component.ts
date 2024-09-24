@@ -7,6 +7,7 @@ import { CommentListComponent } from '../comment-list/comment-list.component';
 import { ButtonComponent } from '../../../../shared/button/button.component';
 import { AuthService } from '../../../../core/services/auth.service';
 import { RatingFormPanelComponent } from '../../../../shared/rating-form-panel/rating-form-panel.component';
+import { PostComment, PostCommentForm } from '../../models/post.model';
 
 @Component({
   selector: 'app-post-details',
@@ -34,6 +35,7 @@ export class PostDetailsComponent implements OnInit {
   commentsTotalCount = this.postsService.commentsTotalCount;
   currentPage = signal(1);
   maxPages = computed(() => Math.ceil(this.commentsTotalCount() / 10));
+  currentCommentData = signal<PostComment>(null);
 
   ngOnInit() {
     const postId = this.route.snapshot.params.id;
@@ -79,5 +81,9 @@ export class PostDetailsComponent implements OnInit {
       this.post().id,
       rating
     );
+  }
+
+  onCommentOutput(commentData: PostComment) {
+    this.currentCommentData.set(commentData);
   }
 }

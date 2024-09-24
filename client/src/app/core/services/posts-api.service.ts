@@ -6,6 +6,7 @@ import {
   GetPostCommentsResponse,
   GetPostResponse,
   Post,
+  PostComment,
   PostForm,
   PostRating,
   UpdatePostReq,
@@ -57,6 +58,16 @@ export class PostsApiService {
 
   postComment(userId: string, postId: number, text: string) {
     return this.http.post(`${BASE_URL}/comments`, { userId, postId, text });
+  }
+
+  deleteComment(commentId: number) {
+    return this.http.delete(`${BASE_URL}/comments/${commentId}`);
+  }
+
+  patchComment(commentId: number, commentText: string) {
+    return this.http.patch(`${BASE_URL}/comments/${commentId}`, {
+      text: commentText,
+    });
   }
 
   postRating(userId: string, postId: number, rating: number) {

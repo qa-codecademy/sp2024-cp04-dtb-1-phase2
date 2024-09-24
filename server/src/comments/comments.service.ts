@@ -61,11 +61,19 @@ export class CommentsService {
     return this.commentsRepo.findOneBy({ id });
   }
 
-  // update(id: number, updateCommentDto: UpdateCommentDto) {
-  //   return `This action updates a #${id} comment`;
-  // }
+  async update(id: number, updateCommentDto: UpdateCommentDto) {
+    const foundComment = await this.commentsRepo.findOneBy({ id });
 
-  // remove(id: number) {
-  //   return `This action removes a #${id} comment`;
-  // }
+    console.log(updateCommentDto);
+
+    Object.assign(foundComment, updateCommentDto);
+
+    return this.commentsRepo.save(foundComment);
+  }
+
+  async remove(id: number) {
+    const foundComment = await this.commentsRepo.findBy({ id });
+
+    return this.commentsRepo.remove(foundComment);
+  }
 }

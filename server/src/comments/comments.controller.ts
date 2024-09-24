@@ -14,6 +14,7 @@ import { CommentsService } from './comments.service';
 import { CreateCommentDto } from './dto/create-comment.dto';
 import { AuthGuard } from 'src/auth/auth.guard';
 import { GetCommentsQuery } from './comments.model';
+import { UpdateCommentDto } from './dto/update-comment.dto';
 
 @UseGuards(AuthGuard)
 @Controller('comments')
@@ -43,13 +44,13 @@ export class CommentsController {
     return this.commentsService.findOne(+id);
   }
 
-  // @Patch(':id')
-  // update(@Param('id') id: string, @Body() updateCommentDto: UpdateCommentDto) {
-  //   return this.commentsService.update(+id, updateCommentDto);
-  // }
+  @Patch(':id')
+  update(@Param('id') id: string, @Body() updateCommentDto: UpdateCommentDto) {
+    return this.commentsService.update(+id, updateCommentDto);
+  }
 
-  // @Delete(':id')
-  // remove(@Param('id') id: string) {
-  //   return this.commentsService.remove(+id);
-  // }
+  @Delete(':id')
+  remove(@Param('id') id: string) {
+    return this.commentsService.remove(+id);
+  }
 }

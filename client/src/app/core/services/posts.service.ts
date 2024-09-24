@@ -107,6 +107,26 @@ export class PostsService {
     });
   }
 
+  deleteComment(commentId: number) {
+    this.apiService.deleteComment(commentId).subscribe({
+      next: () => {
+        this.comments.set([]);
+        this.getPostComments(this.selectedPost().id);
+      },
+      error: (error) => console.log(error),
+    });
+  }
+
+  editComment(commentId: number, commentText: string) {
+    this.apiService.patchComment(commentId, commentText).subscribe({
+      next: () => {
+        this.comments.set([]);
+        this.getPostComments(this.selectedPost().id);
+      },
+      error: (error) => console.log(error),
+    });
+  }
+
   createPostRating(userId: string, postId: number, rating: number) {
     this.apiService.postRating(userId, postId, rating).subscribe({
       next: () => {

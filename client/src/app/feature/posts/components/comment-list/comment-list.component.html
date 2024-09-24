@@ -6,10 +6,10 @@
         <span> {{ comment.text }}</span>
         @if(comment.user.id === currentUser().id){
         <div class="post-button-controls-container">
-          <button class="edit-button">
+          <button class="edit-button" (click)="odCommentEdit(comment)">
             <i class="fa-regular fa-pen-to-square"></i>
           </button>
-          <button class="delete-button">
+          <button class="delete-button" (click)="onCommentDelete(comment.id)">
             <i class="fa-solid fa-trash"></i>
           </button>
         </div>

@@ -57,6 +57,11 @@ export interface PostComment {
   };
 }
 
+export interface PostCommentForm {
+  commentId: number;
+  commentText: string;
+}
+
 export interface GetPostCommentsResponse {
   comments: PostComment[];
   totalCount: number;

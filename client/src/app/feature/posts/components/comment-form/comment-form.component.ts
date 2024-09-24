@@ -1,4 +1,11 @@
-import { Component, output, signal } from '@angular/core';
+import {
+  Component,
+  effect,
+  inject,
+  input,
+  output,
+  signal,
+} from '@angular/core';
 import {
   FormControl,
   FormGroup,
@@ -6,6 +13,8 @@ import {
   Validators,
 } from '@angular/forms';
 import { ButtonComponent } from '../../../../shared/button/button.component';
+import { PostComment, PostCommentForm } from '../../models/post.model';
+import { PostsService } from '../../../../core/services/posts.service';
 
 @Component({
   selector: 'app-comment-form',
@@ -15,10 +24,20 @@ import { ButtonComponent } from '../../../../shared/button/button.component';
   styleUrl: './comment-form.component.scss',
 })
 export class CommentFormComponent {
+  private postsService = inject(PostsService);
   maxLength = 150;
   isSubbmited = signal<boolean>(false);
 
+  editCommentInput = input<PostComment>(null);
   commentOutput = output<string>();
+
+  constructor() {
+    effect(() => {
+      if (this.editCommentInput()) {
+        this.populateEditForm(this.editCommentInput());
+      }
+    });
+  }
 
   commentForm = new FormGroup({
     text: new FormControl('', [
@@ -26,6 +45,21 @@ export class CommentFormComponent {
       Validators.maxLength(this.maxLength),
     ]),
   });
+
+  populateEditForm(editCommentData: PostComment) {
+    this.commentForm.setValue({
+      text: editCommentData.text,
+    });
+  }
+
+  onEditComment() {
+    this.postsService.editComment(
+      this.editCommentInput().id,
+      this.commentForm.controls.text.value
+    );
+
+    this.commentForm.reset();
+  }
 
   onFormSubmit() {
     this.commentForm.markAllAsTouched();

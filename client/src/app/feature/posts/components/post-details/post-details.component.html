@@ -46,9 +46,15 @@
   <div class="post-comments-container">
     @if(currentUser()){
     <h2>Comments</h2>
-    <app-comment-form (commentOutput)="onAddComment($event)" />
+    <app-comment-form
+      (commentOutput)="onAddComment($event)"
+      [editCommentInput]="currentCommentData()"
+    />
     @if(comments().length){
-    <app-comment-list [comments]="comments()" />
+    <app-comment-list
+      [comments]="comments()"
+      (commnetOutput)="onCommentOutput($event)"
+    />
     <div class="load-more-button-container">
       @if(maxPages() !== currentPage() && maxPages() > 1) {
       <app-button text="Load more" (btnClick)="onLoadmore()" />
