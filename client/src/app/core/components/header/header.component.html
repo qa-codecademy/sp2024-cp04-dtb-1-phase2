@@ -4,7 +4,14 @@
   </div>
   <nav class="Navbar">
     <ul>
-      <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Posts</a></li>
+      <li>
+        <a
+          routerLink="/"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+          >Posts</a
+        >
+      </li>
       @if(currentUser()){
       <li><a routerLink="/add-post" routerLinkActive="active">Add post</a></li>
       }
@@ -24,7 +31,17 @@
       } @else {
       <li><a routerLink="/login" routerLinkActive="active">Login</a></li>
       }
-      <li routerLinkActive="active"><i class="fa-solid fa-lightbulb"></i></li>
+      <li
+        routerLinkActive="active"
+        class="theme-icon"
+        (click)="onToogleClick()"
+      >
+        @if(toogleTheme()){
+        <i class="fa-regular fa-lightbulb"></i>
+        } @else {
+        <i class="fa-solid fa-lightbulb"></i>
+        }
+      </li>
     </ul>
   </nav>
 </header>

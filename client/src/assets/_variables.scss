@@ -1,30 +1,5 @@
-//:root {
-//--bg-color: #161b28;
-//--bg-light: #283149;
-//--font-color: #ffffff;
-//--border-hover-color: #00cfc8;
-//--error: #e74c3c;
-//}
-
-// .dark {
-//     --bg-color: #161b28;
-//     --bg-light: #283149;
-//     --bg-grey: #3a476a;
-//     --font-color: #ffffff;
-//     --border-hover-color: #00cfc8;
-//   }
-
-//   .light {
-//     --bg-color: #ffffff;
-//     --bg-light: #283149;
-//     --bg-grey: #c6cbda;
-//     --font-color: #161b28;
-//     --border-hover-color: #00cfc8;
-//   }
-
-//New color:
-:root {
-  --background-color-website: linear-gradient(
+.dark-theme {
+  --background-color-light: linear-gradient(
     114.9deg,
     rgb(34, 34, 34) 8.3%,
     rgb(0, 40, 60) 41.6%,
@@ -47,8 +22,7 @@
   --background-color-hover: #b7c4cf;
 }
 
-//Light theme:
-:root {
+.light-theme {
   --background-color-light: linear-gradient(
     108.1deg,
     rgb(167, 220, 225) 11.2%,
