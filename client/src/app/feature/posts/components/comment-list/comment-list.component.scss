@@ -21,7 +21,8 @@
     .comment-info {
       display: flex;
       justify-content: space-between;
-      color: var(--font-white);
+      color: var(--font-color-black-light);
+      //color: var(--font-white);
     }
 
     .info-date {
@@ -30,7 +31,8 @@
       text-align: right;
       padding-top: 10px;
       gap: 5px;
-      color: var(--font-white);
+      color: var(--font-color-black-light);
+      //color: var(--font-white);
     }
   }
 }

@@ -16,19 +16,22 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 25px;
-    border-bottom: 1px solid var(--font-white);
+    border-bottom: 1px solid //var(--font-white);
+      var(--font-color-black-light);
     padding-bottom: 15px;
 
     h2.post-page-hader-h2 {
       font-size: 28px;
       font-weight: 600;
-      color: var(--font-white);
+      color: var(--font-color-black-light);
+      //color: var(--font-white);
       margin: 0;
     }
 
     small {
       font-size: 14px;
-      color: var(--font-white);
+      color: var(--font-color-black-light);
+      //color: var(--font-white);
     }
 
     .post-button-controls-container {
@@ -83,7 +86,8 @@
     background-color: rgba(255, 255, 255, 0.3);
     border-radius: 8px;
     font-size: 16px;
-    color: var(--font-white);
+    color: var(--font-color-black-light);
+    //color: var(--font-white);
 
     strong {
       font-weight: 800;
@@ -101,13 +105,15 @@
   .post-comments-container {
     margin-top: 40px;
     padding-top: 20px;
-    border-top: 1px solid var(--font-white);
+    border-top: 1px solid //var(--font-white);
+      var(--font-color-black-light);
 
     h2 {
       font-size: 23px;
       font-weight: 700;
       margin-bottom: 20px;
-      color: var(--font-white);
+      color: var(--font-color-black-light);
+      //color: var(--font-white);
       text-align: center;
     }
 

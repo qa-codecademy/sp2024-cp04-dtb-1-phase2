@@ -1,9 +1,10 @@
 footer {
-  background: var(--background-color-website);
+  background: var(--background-color-light);
   border-top-left-radius: 45%;
   border-top-style: groove;
   font-size: 16px;
-  color: var(--font-white);
+  color: var(--font-color-black-light);
+  //color: var(--font-white);
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -54,7 +55,8 @@ footer {
     cursor: pointer;
   }
   a {
-    color: var(--font-white);
+    color: var(--font-color-black-light);
+    //color: var(--font-white);
     text-decoration: none;
     cursor: pointer;
   }
@@ -76,13 +78,15 @@ footer {
     justify-content: center;
     align-items: center;
     width: 100%;
-    color: var(--font-black);
+    color: var(--font-color-black-light);
+    //color: var(--font-black);
     text-align: center;
     font-size: 12px;
     opacity: 1;
   }
   .footer-botom a {
-    color: var(--font-black);
+    color: var(--font-color-black-light);
+    //color: var(--font-black);
   }
   .address {
     padding-left: 10px;
@@ -92,7 +96,8 @@ footer {
   }
   .social-links h2 {
     text-align: left;
-    color: var(--font-white);
+    color: var(--font-color-black-light);
+    //color: var(--font-white);
     margin-top: 0px;
     margin-bottom: 16px;
     opacity: 0.7;

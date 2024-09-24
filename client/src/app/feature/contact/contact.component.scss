@@ -25,7 +25,8 @@
       h3 {
         font-size: 24px;
         margin-bottom: 15px;
-        color: var(--font-white);
+        color: var(--font-color-black-light);
+        //color: var(--font-white);
       }
 
       .formBox {
@@ -48,7 +49,8 @@
             font-size: 14px;
             padding-top: 15px;
             margin-bottom: 5px;
-            color: var(--font-white);
+            color: var(--font-color-black-light);
+            //color: var(--font-white);
           }
 
           input,
@@ -85,7 +87,8 @@
       h3 {
         font-size: 24px;
         margin-bottom: 15px;
-        color: var(--font-white);
+        color: var(--font-color-black-light);
+        //color: var(--font-white);
       }
 
       .infoBox {
@@ -96,12 +99,14 @@
 
           span {
             margin-right: 10px;
-            color: var(--font-white);
+            color: var(--font-color-black-light);
+            //color: var(--font-white);
           }
 
           .adress-p {
             margin: 0;
-            color: var(--font-white);
+            color: var(--font-color-black-light);
+            //color: var(--font-white);
           }
 
           a {

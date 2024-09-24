@@ -6,7 +6,8 @@
     font-size: 16px;
     background-color: rgba(255, 255, 255, 0.3);
     resize: vertical;
-    color: var(--font-white);
+    color: var(--font-color-black-light);
+    //color: var(--font-white);
     font-family: "Nino", sans-serif;
 
     &::placeholder {
