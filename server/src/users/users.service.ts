@@ -22,6 +22,10 @@ export class UsersService {
     });
   }
 
+  async findAllSubscribedUsers() {
+    return await this.usersRepo.findBy({ isSubscribed: true });
+  }
+
   async findUserById(id: string) {
     try {
       const foundUser = await this.usersRepo.findOneByOrFail({ id });
@@ -76,5 +80,22 @@ export class UsersService {
     const foundUser = await this.findUserById(id);
 
     await this.usersRepo.remove(foundUser);
+  }
+
+  async updateSubscribeOnUser(
+    userId: string,
+    subscription: 'subscribe' | 'unsubscribe',
+  ) {
+    const foundUser = await this.usersRepo.findOneBy({ id: userId });
+
+    console.log(foundUser);
+
+    if (subscription === 'subscribe') {
+      return await this.usersRepo.save({ ...foundUser, isSubscribed: true });
+    }
+
+    if (subscription === 'unsubscribe') {
+      return await this.usersRepo.save({ ...foundUser, isSubscribed: false });
+    }
   }
 }

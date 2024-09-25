@@ -6,6 +6,7 @@ export interface User {
   email: string;
   token: string;
   refreshToken: string;
+  isSubscribed: boolean;
 }
 
 export interface UserCredentails {

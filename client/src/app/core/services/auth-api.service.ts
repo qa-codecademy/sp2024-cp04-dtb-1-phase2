@@ -39,4 +39,14 @@ export class AuthApiService {
       observe: 'response',
     });
   }
+
+  getUserById(userId: string) {
+    return this.http.get<User>(`${BASE_URL}/users/${userId}`);
+  }
+
+  changeSubscribe(userId: string, subscription: 'subscribe' | 'unsubscribe') {
+    return this.http.get(
+      `${BASE_URL}/users/subscription/${subscription}/${userId}`
+    );
+  }
 }

@@ -29,6 +29,11 @@ export class User {
   @Column()
   lastName: string;
 
+  @Column({
+    default: false,
+  })
+  isSubscribed: boolean;
+
   @Column('text', {
     array: true,
     default: [],

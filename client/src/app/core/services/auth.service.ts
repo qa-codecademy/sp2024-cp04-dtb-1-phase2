@@ -86,4 +86,33 @@ export class AuthService {
       })
     );
   }
+
+  getUserById(userId: string) {
+    this.apiService.getUserById(userId).subscribe({
+      next: (value) => {
+        this.currentUser.set(value);
+        this.saveCurrentUserToLocalStorage({
+          ...value,
+          token: this.currentUser().token,
+          refreshToken: this.currentUser().refreshToken,
+        });
+      },
+      error: (error) => console.log(error),
+    });
+  }
+
+  updateUserSubcription(
+    userId: string,
+    subscription: 'subscribe' | 'unsubscribe'
+  ) {
+    this.apiService.changeSubscribe(userId, subscription).subscribe({
+      next: () => {
+        console.log('Subscribe successfuly changed!');
+        this.getUserById(this.currentUser().id);
+      },
+      error: (error) => {
+        console.log(error);
+      },
+    });
+  }
 }

@@ -38,6 +38,14 @@ export class UsersController {
     return this.usersService.findCommentsByUser(req.user.id);
   }
 
+  @Get('/subscription/:userSubscribe/:id')
+  updateSubscribeOnUser(
+    @Param('id') id: string,
+    @Param('userSubscribe') userSubscribe: 'subscribe' | 'unsubscribe',
+  ) {
+    return this.usersService.updateSubscribeOnUser(id, userSubscribe);
+  }
+
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.usersService.findUserById(id);

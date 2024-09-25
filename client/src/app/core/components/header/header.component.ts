@@ -37,4 +37,8 @@ export class HeaderComponent {
   onToogleClick() {
     this.toogleTheme.update((prev) => !prev);
   }
+
+  onSubscribeClick(subscription: 'subscribe' | 'unsubscribe') {
+    this.authService.updateUserSubcription(this.currentUser().id, subscription);
+  }
 }

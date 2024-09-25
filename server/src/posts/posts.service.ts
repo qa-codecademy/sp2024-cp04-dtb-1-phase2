@@ -5,21 +5,28 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Post } from './entities/post.entity';
 import { Repository } from 'typeorm';
 import { GetPostsQuery } from './posts.mode';
+import { MailsService } from 'src/mails/mails.service';
 
 @Injectable()
 export class PostService {
-  constructor(@InjectRepository(Post) private postsRepo: Repository<Post>) {}
+  constructor(
+    @InjectRepository(Post) private postsRepo: Repository<Post>,
+    private mailService: MailsService,
+  ) {}
 
-  create(createPostDto: CreatePostDto) {
-    console.log('from createpost dto', createPostDto);
-    return this.postsRepo.save({
+  async create(createPostDto: CreatePostDto) {
+    const newPost = {
       text: createPostDto.text,
       title: createPostDto.title,
       tags: createPostDto.tags,
       image: createPostDto.image,
       date: String(new Date()),
       user: { id: createPostDto.userId },
-    });
+    };
+
+    await this.mailService.sendMail();
+
+    return this.postsRepo.save(newPost);
   }
 
   async findAll(query: GetPostsQuery) {
