@@ -18,7 +18,9 @@ export class PostCardComponent implements OnInit {
   postRating = signal<number>(0);
 
   ngOnInit(): void {
-    this.calucaltePostRating();
+    if (this.post().ratings.length > 0) {
+      this.calucaltePostRating();
+    }
   }
 
   calucaltePostRating() {

@@ -29,10 +29,7 @@
         </div>
         <div class="post-page-text-div-container">
           <p>{{ addPostData().text }}</p>
-          <p>
-            <strong>Tags:</strong> @for(tag of addPostData().tags ; track
-            $index){ #{{ tag }} }
-          </p>
+          <p><strong>Tags:</strong> {{ addPostData().tags }}</p>
 
           <div class="rating-container">
             <app-rating-form-panel></app-rating-form-panel>

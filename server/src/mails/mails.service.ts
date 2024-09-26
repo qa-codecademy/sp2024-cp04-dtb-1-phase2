@@ -16,7 +16,7 @@ export class MailsService {
     try {
       await this.mailerService.sendMail({
         to: subscribedUsers.map((user) => user.email).join(''),
-        from: 'Welcome to the techspheresite@gmail.com', // sender address
+        from: 'techspheresite@gmail.com', // sender address
         subject: 'New post in Tech Sphere',
         text: 'New post is just created, visit our site and check it out!', // plaintext body
       });

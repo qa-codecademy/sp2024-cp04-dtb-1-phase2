@@ -16,6 +16,7 @@ import { MailsService } from './mails.service';
           // For SSL and TLS connection
           secure: true,
           port: 465,
+          service: 'gmail',
           auth: {
             // Account gmail address
             user: configService.get('MAIL_USER'),
@@ -31,3 +32,15 @@ import { MailsService } from './mails.service';
   exports: [MailsService],
 })
 export class MailsModule {}
+
+// "EmailHost": "",
+// "EmailUsername": "",
+// "EmailPassword": "",
+// "EmailPort": "",
+// "DKIMPrivateKey": "",
+// "DKIMDomain": "",
+// "DKIMSelector": "",
+
+// https://easydmarc.com/tools/dkim-record-generator
+
+// https://support.google.com/a/answer/174124?hl=en

@@ -4,30 +4,36 @@ import { RegisterComponent } from './feature/auth/components/register/register.c
 import { AboutComponent } from './feature/about/about.component';
 import { ContactComponent } from './feature/contact/contact.component';
 import { NotFoundComponent } from './shared/not-found/not-found.component';
-import { HomeComponent } from './feature/home/home.component';
-import { PostDetailsComponent } from './feature/posts/components/post-details/post-details.component';
-import { AddPostComponent } from './feature/posts/components/add-post/add-post.component';
-import { EditPostComponent } from './feature/posts/components/edit-post/edit-post.component';
 import { AuthGuard, loginRegisterGuard } from './core/guards';
 
 export const routes: Routes = [
   {
     path: '',
-    component: HomeComponent,
+    loadComponent: () =>
+      import('./feature/home/home.component').then((c) => c.HomeComponent),
   },
   {
     path: 'add-post',
-    component: AddPostComponent,
+    loadComponent: () =>
+      import('./feature/posts/components/add-post/add-post.component').then(
+        (c) => c.AddPostComponent
+      ),
     canActivate: [AuthGuard],
   },
   {
     path: 'edit-post/:id',
-    component: EditPostComponent,
+    loadComponent: () =>
+      import('./feature/posts/components/edit-post/edit-post.component').then(
+        (c) => c.EditPostComponent
+      ),
     canActivate: [AuthGuard],
   },
   {
     path: 'post-details/:id',
-    component: PostDetailsComponent,
+    loadComponent: () =>
+      import(
+        './feature/posts/components/post-details/post-details.component'
+      ).then((c) => c.PostDetailsComponent),
     canActivate: [AuthGuard],
   },
   {
