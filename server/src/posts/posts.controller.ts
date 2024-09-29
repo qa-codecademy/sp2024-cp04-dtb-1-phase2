@@ -22,7 +22,7 @@ import { GetPostsQuery } from './posts.mode';
 export class PostsController {
   constructor(private readonly postsService: PostService) {}
 
-  //@UseGuards(AuthGuard)
+  @UseGuards(AuthGuard)
   @Post()
   create(@Body() createPostDto: CreatePostDto) {
     return this.postsService.create(createPostDto);

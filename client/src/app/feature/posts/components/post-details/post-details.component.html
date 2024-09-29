@@ -7,7 +7,7 @@
         {{ post().user.username }}</small
       >
     </div>
-    @if(currentUser().id === post().user.id){
+    @if(currentUser()?.id === post().user.id){
     <div class="post-button-controls-container">
       <button class="edit-button" (click)="onPostNavigate('edit')">
         <i class="fa-regular fa-pen-to-square"></i>
@@ -44,7 +44,11 @@
     </div>
   </div>
   <div class="post-comments-container">
-    @if(currentUser()){
+    @if(!currentUser()){
+    <div class="before-login-message-container">
+      <p>Log in before you see comments and rating!</p>
+    </div>
+    } @if(currentUser()){
     <h2>Comments</h2>
     <app-comment-form
       (commentOutput)="onAddComment($event)"

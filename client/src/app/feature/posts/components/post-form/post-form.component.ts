@@ -14,7 +14,6 @@ import {
 } from '@angular/forms';
 import { ButtonComponent } from '../../../../shared/button/button.component';
 import { CreatePostReq, Post, PostForm } from '../../models/post.model';
-import { PostsService } from '../../../../core/services/posts.service';
 import { AuthService } from '../../../../core/services/auth.service';
 
 @Component({
@@ -25,8 +24,6 @@ import { AuthService } from '../../../../core/services/auth.service';
   styleUrl: './post-form.component.scss',
 })
 export class PostFormComponent {
-  private postsService = inject(PostsService);
-
   currentUser = inject(AuthService).currentUser;
   editPostData = input<Post>();
   postForm = this.generatePostFrom();
@@ -72,6 +69,7 @@ export class PostFormComponent {
 
   onPreviewClick() {
     this.postForm.markAllAsTouched();
+    this.isSubbmited.set(true);
 
     if (this.postForm.invalid) return;
 
@@ -82,7 +80,6 @@ export class PostFormComponent {
 
   onFormSubbmit() {
     this.postForm.markAllAsTouched();
-    this.isSubbmited.set(true);
 
     if (this.postForm.invalid) return;
 

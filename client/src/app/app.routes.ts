@@ -34,7 +34,6 @@ export const routes: Routes = [
       import(
         './feature/posts/components/post-details/post-details.component'
       ).then((c) => c.PostDetailsComponent),
-    canActivate: [AuthGuard],
   },
   {
     path: 'about',

@@ -16,7 +16,6 @@ import { AuthGuard } from 'src/auth/auth.guard';
 import { GetCommentsQuery } from './comments.model';
 import { UpdateCommentDto } from './dto/update-comment.dto';
 
-@UseGuards(AuthGuard)
 @Controller('comments')
 export class CommentsController {
   constructor(private readonly commentsService: CommentsService) {}
@@ -44,11 +43,13 @@ export class CommentsController {
     return this.commentsService.findOne(+id);
   }
 
+  @UseGuards(AuthGuard)
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateCommentDto: UpdateCommentDto) {
     return this.commentsService.update(+id, updateCommentDto);
   }
 
+  @UseGuards(AuthGuard)
   @Delete(':id')
   remove(@Param('id') id: string) {
     return this.commentsService.remove(+id);

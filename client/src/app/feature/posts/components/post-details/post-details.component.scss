@@ -59,6 +59,8 @@
   }
 
   .post-page-image-div-container {
+    display: flex;
+    justify-content: center;
     margin-bottom: 20px;
 
     .main-image {
@@ -111,5 +113,13 @@
       margin-top: 25px;
       text-align: center;
     }
+  }
+}
+
+.before-login-message-container {
+  text-align: center;
+
+  p {
+    color: var(--font-color);
   }
 }
