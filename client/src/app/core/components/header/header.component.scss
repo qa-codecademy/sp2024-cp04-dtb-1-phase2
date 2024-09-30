@@ -100,3 +100,22 @@
 .dropdown:hover .dropdown-content {
   display: block;
 }
+
+@media only screen and (max-width: 440px) {
+  .Header {
+    display: grid;
+    grid-template-columns: 1fr max-content;
+    align-items: center;
+    padding: 15px 15px;
+
+    .logo-div {
+      img {
+        width: 180px;
+      }
+    }
+
+    nav {
+      display: none;
+    }
+  }
+}
