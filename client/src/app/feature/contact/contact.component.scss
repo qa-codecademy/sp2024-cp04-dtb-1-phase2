@@ -22,7 +22,6 @@
     padding: 20px;
 
     .contact.form {
-      border: 1px solid black;
       border-radius: 5px;
       padding: 20px;
 
@@ -92,7 +91,6 @@
     padding: 20px;
 
     .contact.info {
-      border: 1px solid black;
       border-radius: 5px;
       padding: 10px 20px;
       h3 {
@@ -130,7 +128,6 @@
     }
 
     .contact.map {
-      border: 1px solid black;
       border-radius: 5px;
       padding: 10px;
       iframe {
@@ -143,4 +140,51 @@
 }
 
 @media only screen and (max-width: 440px) {
+  .contact-main {
+    padding: 5px 5px;
+
+    .send-button {
+      text-align: center;
+    }
+
+    .contact-flexbox {
+      gap: 10px;
+      padding: 20px;
+
+      .contact.form {
+        padding: 5px;
+
+        h3 {
+          font-size: 22px;
+          text-align: center;
+          margin-bottom: 10px;
+          margin-top: 10px;
+        }
+      }
+    }
+
+    .contact.info {
+      border-radius: 5px;
+      padding: 10px 20px;
+
+      h3 {
+        font-size: 22px;
+        text-align: center;
+      }
+    }
+
+    .infoBox {
+      div {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+
+        span {
+          font-size: 15px;
+          margin-right: 10px;
+          color: var(--font-color);
+        }
+      }
+    }
+  }
 }
