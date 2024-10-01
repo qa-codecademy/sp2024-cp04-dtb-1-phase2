@@ -71,3 +71,20 @@
   color: var(--font-search-text);
   border: 2px solid var(--translucent-color);
 }
+
+//RESPONSE HOME PAGE
+@media only screen and (max-width: 440px) {
+  .home-page {
+    .home-ads-container {
+      display: none;
+    }
+
+    .home-post-list-container {
+      padding: 0;
+    }
+
+    .search-input {
+      width: 335px;
+    }
+  }
+}
