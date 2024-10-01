@@ -7,6 +7,7 @@ import {
 import { AuthApiService } from './auth-api.service';
 import { Router } from '@angular/router';
 import { tap } from 'rxjs';
+import { NotificationService } from './notification.service';
 
 @Injectable({
   providedIn: 'root',
@@ -14,6 +15,7 @@ import { tap } from 'rxjs';
 export class AuthService {
   private router = inject(Router);
   private apiService = inject(AuthApiService);
+  private notificationsService = inject(NotificationService);
 
   currentUser = signal<User>(null);
 
@@ -25,6 +27,10 @@ export class AuthService {
     this.apiService.registerUser(request).subscribe({
       next: () => {
         console.log('User registered');
+        this.notificationsService.showToast(
+          'Successfully registered, please log in with your new account!',
+          true
+        );
         this.router.navigate(['login']);
       },
       error: (error) => console.log(error),
@@ -44,7 +50,8 @@ export class AuthService {
 
         this.router.navigate(['']);
       },
-      error: (error) => console.log(error),
+      error: (error) =>
+        this.notificationsService.showToast(error.error.message, false),
     });
   }
 
