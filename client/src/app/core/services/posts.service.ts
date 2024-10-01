@@ -9,6 +9,7 @@ import {
   UpdatePostReq,
 } from '../../feature/posts/models/post.model';
 import { Router } from '@angular/router';
+import { NotificationService } from './notification.service';
 
 @Injectable({
   providedIn: 'root',
@@ -16,6 +17,7 @@ import { Router } from '@angular/router';
 export class PostsService {
   private apiService = inject(PostsApiService);
   private router = inject(Router);
+  private notificationsService = inject(NotificationService);
 
   posts = signal<Post[]>([]);
   totalPostCount = signal<number>(0);
@@ -49,8 +51,7 @@ export class PostsService {
   createPost(postData: CreatePostReq) {
     this.apiService.createPost(postData).subscribe({
       next: (value) => {
-        console.log('Post created!');
-        console.log(value);
+        this.notificationsService.showToast('Successfully created post!', true);
         this.router.navigate([`post-details/${value.id}`]);
       },
       error: (error) => {
@@ -63,7 +64,7 @@ export class PostsService {
     console.log(postData);
     this.apiService.patchPost(postId, postData).subscribe({
       next: () => {
-        console.log('Post edited!');
+        this.notificationsService.showToast('Successfully edited post!', true);
         this.router.navigate([`post-details/${this.selectedPost().id}`]);
       },
       error: (error) => {
@@ -75,7 +76,7 @@ export class PostsService {
   deletePost(postId: number) {
     this.apiService.deletePost(postId).subscribe({
       next: () => {
-        console.log('post deleted');
+        this.notificationsService.showToast('Successfully deleted post!', true);
       },
       error: (error) => console.log(error),
     });
@@ -102,6 +103,10 @@ export class PostsService {
       next: () => {
         this.comments.set([]);
         this.getPostComments(postId);
+        this.notificationsService.showToast(
+          'Successfully added a comment!',
+          true
+        );
       },
       error: (error) => console.log(error),
     });
@@ -112,6 +117,10 @@ export class PostsService {
       next: () => {
         this.comments.set([]);
         this.getPostComments(this.selectedPost().id);
+        this.notificationsService.showToast(
+          'Successfully deleted a comment!',
+          true
+        );
       },
       error: (error) => console.log(error),
     });
@@ -129,9 +138,7 @@ export class PostsService {
 
   createPostRating(userId: string, postId: number, rating: number) {
     this.apiService.postRating(userId, postId, rating).subscribe({
-      next: () => {
-        console.log('Rating added');
-      },
+      next: () => {},
       error: (error) => console.log(error),
     });
   }
