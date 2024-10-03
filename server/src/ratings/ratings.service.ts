@@ -3,13 +3,13 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Rating } from './entities/rating.entity';
 import { Repository } from 'typeorm';
 import { CreateRatingDto } from './dto/create-rating.dto';
-import { UsersService } from 'src/users/users.service';
+import { PostService } from 'src/posts/posts.service';
 
 @Injectable()
 export class RatingsService {
   constructor(
     @InjectRepository(Rating) private ratingRepo: Repository<Rating>,
-    private usersService: UsersService,
+    private postsService: PostService,
   ) {}
 
   async findAll() {
@@ -22,6 +22,12 @@ export class RatingsService {
   }
 
   async create(createRatingDto: CreateRatingDto) {
+    const foundPost = await this.postsService.findOne(createRatingDto.postId);
+
+    if (foundPost.user.id === createRatingDto.userId) {
+      throw new Error('Operation not permitted');
+    }
+
     const foundRatingByUser = await this.ratingRepo.findOneBy({
       user: {
         id: createRatingDto.userId,
