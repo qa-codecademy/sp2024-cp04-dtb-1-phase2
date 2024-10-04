@@ -134,3 +134,14 @@
     }
   }
 }
+
+@media only screen and (max-width: 440px) {
+  .edit-post-page {
+    display: table-row;
+  }
+
+  .preview-container {
+    width: 345px;
+    padding: 5px;
+  }
+}

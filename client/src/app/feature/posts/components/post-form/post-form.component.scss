@@ -45,3 +45,9 @@
 .error-form-message-container {
   text-align: center;
 }
+
+@media only screen and (max-width: 440px) {
+  .form {
+    width: 335px;
+  }
+}
