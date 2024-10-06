@@ -29,6 +29,17 @@ export class HeaderComponent {
       }
     });
   }
+  //Hamburger manu:
+  menuValue: boolean = false;
+  menu_icon: string = 'fa-solid fa-bars';
+  openMenu() {
+    this.menuValue = !this.menuValue;
+    this.menu_icon = this.menuValue ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
+  }
+  closeMenu() {
+    this.menuValue = false;
+    this.menu_icon = 'fa-solid fa-xmark';
+  }
 
   onLogOutClick() {
     this.authService.logOutUser();
