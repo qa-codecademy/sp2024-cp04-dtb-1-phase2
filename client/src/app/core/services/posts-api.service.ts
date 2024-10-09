@@ -6,8 +6,6 @@ import {
   GetPostCommentsResponse,
   GetPostResponse,
   Post,
-  PostComment,
-  PostForm,
   PostRating,
   UpdatePostReq,
 } from '../../feature/posts/models/post.model';
@@ -26,6 +24,31 @@ export class PostsApiService {
         maxResults,
       },
     });
+  }
+
+  fetchPostsByMonth(firstResult: number, maxResults: number, month: string) {
+    return this.http.get<GetPostResponse>(`${BASE_URL}/posts?month=${month}`, {
+      params: {
+        firstResult,
+        maxResults,
+      },
+    });
+  }
+
+  fetchPostsByDate(
+    firstResult: number,
+    maxResults: number,
+    orderBy: 'ASC' | 'DESC'
+  ) {
+    return this.http.get<GetPostResponse>(
+      `${BASE_URL}/posts?orderBy=${orderBy}`,
+      {
+        params: {
+          firstResult,
+          maxResults,
+        },
+      }
+    );
   }
 
   fetchPostById(postId: number) {

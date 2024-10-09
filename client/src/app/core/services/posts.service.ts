@@ -4,8 +4,6 @@ import {
   CreatePostReq,
   Post,
   PostComment,
-  PostForm,
-  PostRating,
   UpdatePostReq,
 } from '../../feature/posts/models/post.model';
 import { Router } from '@angular/router';
@@ -20,6 +18,7 @@ export class PostsService {
   private notificationsService = inject(NotificationService);
 
   posts = signal<Post[]>([]);
+
   totalPostCount = signal<number>(0);
   selectedPost = signal<Post>(null);
   selectedRating = signal<number>(0);
@@ -34,6 +33,40 @@ export class PostsService {
       },
       error: (err) => console.log(err),
     });
+  }
+
+  getPostsByDate(
+    firstResult: number = 1,
+    maxResults: number = 10,
+    orderBy?: 'ASC' | 'DESC'
+  ) {
+    return this.apiService
+      .fetchPostsByDate(firstResult, maxResults, orderBy)
+      .subscribe({
+        next: (response) => {
+          this.posts.set([]);
+          this.posts.update((prev) => [...prev, ...response.posts]);
+          this.totalPostCount.set(response.totalCount);
+        },
+        error: (err) => console.log(err),
+      });
+  }
+
+  getPostsByMonth(
+    firstResult: number = 1,
+    maxResults: number = 10,
+    month: string
+  ) {
+    return this.apiService
+      .fetchPostsByMonth(firstResult, maxResults, month)
+      .subscribe({
+        next: (response) => {
+          this.posts.set([]);
+          this.posts.update((prev) => [...prev, ...response.posts]);
+          this.totalPostCount.set(response.totalCount);
+        },
+        error: (err) => console.log(err),
+      });
   }
 
   getPostById(postId: number) {

@@ -15,7 +15,7 @@ import { PostService } from './posts.service';
 import { CreatePostDto } from './dto/create-post.dto';
 import { UpdatePostDto } from './dto/update-post.dto';
 import { AuthGuard } from 'src/auth/auth.guard';
-import { GetPostsQuery } from './posts.mode';
+import { PostsFilters } from './interfaces/posts-filters.interface';
 
 @UseInterceptors(ClassSerializerInterceptor)
 @Controller('posts')
@@ -29,8 +29,20 @@ export class PostsController {
   }
 
   @Get()
-  findAll(@Query() query: GetPostsQuery) {
-    return this.postsService.findAll(query);
+  findAll(
+    @Query('firstResult') firstResult: string,
+    @Query('maxResults') maxResults: string,
+    @Query('orderBy') orderBy: 'ASC' | 'DESC',
+    @Query('month') month: string,
+  ) {
+    const postsFilters: PostsFilters = {
+      firstResult,
+      maxResults,
+      orderBy,
+      month,
+    };
+
+    return this.postsService.findAll(postsFilters);
   }
 
   @Get(':id')

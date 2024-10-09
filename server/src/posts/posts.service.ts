@@ -3,9 +3,9 @@ import { CreatePostDto } from './dto/create-post.dto';
 import { UpdatePostDto } from './dto/update-post.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Post } from './entities/post.entity';
-import { Repository } from 'typeorm';
-import { GetPostsQuery } from './posts.mode';
+import { FindManyOptions, Repository } from 'typeorm';
 import { MailsService } from 'src/mails/mails.service';
+import { PostsFilters } from './interfaces/posts-filters.interface';
 
 @Injectable()
 export class PostService {
@@ -29,8 +29,8 @@ export class PostService {
     return this.postsRepo.save(newPost);
   }
 
-  async findAll(query: GetPostsQuery) {
-    const posts = await this.postsRepo.find({
+  async findAll(filters: PostsFilters) {
+    const filterConfig: FindManyOptions<Post> = {
       relations: {
         user: true,
         comments: true,
@@ -39,8 +39,8 @@ export class PostService {
       order: {
         date: 'ASC',
       },
-      skip: query.firstResult ? Number(query.firstResult) - 1 : 0,
-      take: Number(query.maxResults) || 10,
+      skip: filters.firstResult ? Number(filters.firstResult) - 1 : 0,
+      take: Number(filters.maxResults) || 10,
       select: {
         user: {
           id: true,
@@ -50,7 +50,36 @@ export class PostService {
           username: true,
         },
       },
-    });
+    };
+
+    if (filters?.orderBy) {
+      if (filters?.orderBy === 'ASC') filterConfig.order = { date: 'ASC' };
+      if (filters?.orderBy === 'DESC') filterConfig.order = { date: 'DESC' };
+
+      const posts = await this.postsRepo.find(filterConfig);
+
+      const totalCount = await this.postsRepo.count();
+
+      return {
+        posts,
+        totalCount,
+      };
+    }
+
+    if (filters?.month) {
+      const posts = (await this.postsRepo.find(filterConfig)).filter((post) => {
+        return new Date(post.date).getMonth() + 1 === Number(filters?.month);
+      });
+
+      const totalCount = await this.postsRepo.count();
+
+      return {
+        posts,
+        totalCount,
+      };
+    }
+
+    const posts = await this.postsRepo.find(filterConfig);
 
     const totalCount = await this.postsRepo.count();
 
