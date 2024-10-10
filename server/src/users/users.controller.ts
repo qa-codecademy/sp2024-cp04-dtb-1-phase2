@@ -30,6 +30,11 @@ export class UsersController {
     return this.usersService.findAll();
   }
 
+  @Get('/posts/:id')
+  findPostsByUser(@Param('id') id: string) {
+    return this.usersService.findPostsByUser(id);
+  }
+
   @UseGuards(AuthGuard)
   @Get('comments')
   findCommentsByUser(@Req() req: { user: User }) {

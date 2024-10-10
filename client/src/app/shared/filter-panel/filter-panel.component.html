@@ -1,30 +1,37 @@
-<div class="filters-container">
+<form
+  class="filters-container"
+  [formGroup]="filterForm"
+  (ngSubmit)="onFilterClick()"
+>
   <select
     name="posts-filter-menu"
     class="posts-filter-menu"
-    [(ngModel)]="selectFilterValue"
+    formControlName="mainFilter"
   >
-    <option value="" selected disabled>Select:</option>
+    <option value="" selected disabled>Select filter:</option>
     <option value="date">Date</option>
     <option value="month">Month</option>
+    @if(currentUser()){
+    <option value="myPosts">My Posts</option>
+    }
   </select>
-  @if(selectFilterValue() === "date"){
+  @if(filterForm.get("mainFilter").value === "date"){
   <select
     name="posts-filter-menu"
     class="posts-filter-menu"
-    [(ngModel)]="selectDateFilterValue"
+    formControlName="dateFilter"
   >
-    <option value="null" selected disabled>Select:</option>
+    <option value="null" selected disabled>Select type:</option>
     <option value="ASC">Newest</option>
     <option value="DESC">Oldest</option>
   </select>
-  } @else if (selectFilterValue() === "month") {
+  } @else if (filterForm.get("mainFilter").value === "month") {
   <select
     name="posts-filter-menu"
     class="posts-filter-menu"
-    [(ngModel)]="selectMonthFilterValue"
+    formControlName="monthFilter"
   >
-    <option value="" selected disabled>Select:</option>
+    <option value="" selected disabled>Select month:</option>
     <option value="1">01</option>
     <option value="2">02</option>
     <option value="3">03</option>
@@ -39,8 +46,8 @@
     <option value="12">12</option>
   </select>
   }
-  <button class="button" (click)="onFilterClick()">Filter</button>
+  <button class="button" type="submit">Filter</button>
   <button class="button" (click)="onResetClick()">
     <i class="fa-solid fa-arrows-rotate"></i>
   </button>
-</div>
+</form>

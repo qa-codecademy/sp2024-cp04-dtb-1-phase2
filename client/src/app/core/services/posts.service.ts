@@ -69,6 +69,16 @@ export class PostsService {
       });
   }
 
+  getPostsByUser(userId: string) {
+    return this.apiService.fetchPostsByUser(userId).subscribe({
+      next: (response) => {
+        this.posts.set([]);
+        this.posts.update((prev) => [...prev, ...response]);
+      },
+      error: (err) => console.log(err),
+    });
+  }
+
   getPostById(postId: number) {
     this.apiService.fetchPostById(postId).subscribe({
       next: (res) => {

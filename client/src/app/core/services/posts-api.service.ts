@@ -51,6 +51,10 @@ export class PostsApiService {
     );
   }
 
+  fetchPostsByUser(userId: string) {
+    return this.http.get<Post[]>(`${BASE_URL}/users/posts/${userId}`);
+  }
+
   fetchPostById(postId: number) {
     return this.http.get<Post>(`${BASE_URL}/posts/${postId}`);
   }

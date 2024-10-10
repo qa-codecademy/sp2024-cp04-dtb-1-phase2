@@ -1,36 +1,55 @@
-import { CommonModule } from '@angular/common';
 import { Component, inject, model } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { PostsService } from '../../core/services/posts.service';
+import { AuthService } from '../../core/services/auth.service';
 
 @Component({
   selector: 'app-filter-panel',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [ReactiveFormsModule],
   templateUrl: './filter-panel.component.html',
   styleUrl: './filter-panel.component.scss',
 })
 export class FilterPanelComponent {
   private postsService = inject(PostsService);
-  selectFilterValue = model<string>('');
-  selectDateFilterValue = model<'ASC' | 'DESC'>(null);
-  selectMonthFilterValue = model<string>('');
+  currentUser = inject(AuthService).currentUser;
+
+  filterForm = this.generateFilterForm();
+
+  generateFilterForm() {
+    return new FormGroup({
+      mainFilter: new FormControl(''),
+      dateFilter: new FormControl<'ASC' | 'DESC'>(null),
+      monthFilter: new FormControl<string>(''),
+      myPostsFilter: new FormControl(''),
+    });
+  }
 
   onFilterClick() {
-    if (this.selectFilterValue() === 'date') {
-      this.postsService.getPostsByDate(1, 10, this.selectDateFilterValue());
+    if (this.filterForm.get('mainFilter').value === 'date') {
+      this.postsService.getPostsByDate(
+        1,
+        10,
+        this.filterForm.get('dateFilter').value
+      );
     }
 
-    if (this.selectFilterValue() === 'month') {
-      this.postsService.getPostsByMonth(1, 10, this.selectMonthFilterValue());
+    if (this.filterForm.get('mainFilter').value === 'month') {
+      this.postsService.getPostsByMonth(
+        1,
+        10,
+        this.filterForm.get('monthFilter').value
+      );
+    }
+
+    if (this.filterForm.get('mainFilter').value === 'myPosts') {
+      this.postsService.getPostsByUser(this.currentUser().id);
     }
   }
 
   onResetClick() {
     this.postsService.posts.set([]);
-    this.selectFilterValue.set('');
-    this.selectDateFilterValue.set(null);
-    this.selectMonthFilterValue.set('');
     this.postsService.getPosts();
+    this.filterForm.reset();
   }
 }

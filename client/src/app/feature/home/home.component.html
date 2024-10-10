@@ -15,11 +15,6 @@
       <app-filter-panel />
     </div>
     <div class="post-list-container">
-      <div class="post-list-container-heading">
-        @if(searchValue().length){
-        <h2>Searched posts:</h2>
-        } @else { }
-      </div>
       <app-posts-list [searchValue]="searchValue()"></app-posts-list>
     </div>
   </div>
