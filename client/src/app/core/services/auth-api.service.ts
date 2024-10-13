@@ -4,6 +4,7 @@ import {
   RegisterReq,
   User,
   UserCredentails,
+  UserDetails,
 } from '../../feature/auth/models/auth.model';
 import { BASE_URL } from '../conststants/core.conststants';
 
@@ -48,5 +49,15 @@ export class AuthApiService {
     return this.http.get(
       `${BASE_URL}/users/subscription/${subscription}/${userId}`
     );
+  }
+
+  getUserDetilsByUser() {
+    return this.http.get<UserDetails>(`${BASE_URL}/users/user-details`);
+  }
+
+  changeUserPassword(userId: string, newPassword: string) {
+    return this.http.post(`${BASE_URL}/users/change-password/${userId}`, {
+      newPassword,
+    });
   }
 }

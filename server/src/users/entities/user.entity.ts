@@ -1,8 +1,16 @@
-import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
+import {
+  Entity,
+  Column,
+  PrimaryGeneratedColumn,
+  OneToMany,
+  OneToOne,
+  JoinColumn,
+} from 'typeorm';
 import { Exclude } from 'class-transformer';
 import { Comment } from 'src/comments/entities/comment.entity';
 import { Post } from 'src/posts/entities/post.entity';
 import { Rating } from 'src/ratings/entities/rating.entity';
+import { UserDetails } from 'src/user-details/entities/user-details.entity';
 
 @Entity()
 export class User {
@@ -49,4 +57,8 @@ export class User {
 
   @OneToMany(() => Rating, (ratings) => ratings.user)
   ratings: Rating[];
+
+  @OneToOne(() => UserDetails, (userDetails) => userDetails.user)
+  @JoinColumn()
+  userDetails: UserDetails;
 }

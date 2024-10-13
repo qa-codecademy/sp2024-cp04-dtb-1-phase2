@@ -6,10 +6,17 @@
     <nav class="Navbar">
       <ul>
         <li>
-          <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Posts</a>
+          <a
+            routerLink="/"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+            >Posts</a
+          >
         </li>
         @if(currentUser()){
-        <li><a routerLink="/add-post" routerLinkActive="active">Add post</a></li>
+        <li>
+          <a routerLink="/add-post" routerLinkActive="active">Add post</a>
+        </li>
         }
         <li><a routerLink="/about" routerLinkActive="active">About</a></li>
         <li><a routerLink="/contact" routerLinkActive="active">Contact</a></li>
@@ -23,19 +30,19 @@
           <a (click)="onSubscribeClick('unsubscribe')">Unsubscribe</a>
         </li>
         }
-        <li class="dropdown">
-          <div class="dropbtn">
-            <i class="fa-solid fa-user"></i>
-            {{ currentUser()?.username }}
-          </div>
-          <div class="dropdown-content">
-            <a (click)="onLogOutClick()" routerLinkActive="active">Logout</a>
-          </div>
+        <li>
+          <a routerLink="/user-details" routerLinkActive="active"
+            ><i class="fa-solid fa-user"></i> {{ currentUser()?.username }}</a
+          >
         </li>
         } @else {
         <li><a routerLink="/login" routerLinkActive="active">Login</a></li>
         }
-        <li routerLinkActive="active" class="theme-icon" (click)="onToogleClick()">
+        <li
+          routerLinkActive="active"
+          class="theme-icon"
+          (click)="onToogleClick()"
+        >
           @if(toogleTheme()){
           <i class="fa-regular fa-lightbulb"></i>
           } @else {
@@ -47,7 +54,7 @@
   </div>
   <div class="icon_container">
     <div class="menu-icon" (click)="openMenu()">
-      <i class="{{menu_icon}}"></i>
+      <i class="{{ menu_icon }}"></i>
     </div>
   </div>
 </header>

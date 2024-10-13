@@ -3,6 +3,7 @@ import {
   RegisterReq,
   User,
   UserCredentails,
+  UserDetails,
 } from '../../feature/auth/models/auth.model';
 import { AuthApiService } from './auth-api.service';
 import { Router } from '@angular/router';
@@ -120,6 +121,32 @@ export class AuthService {
       error: (error) => {
         console.log(error);
       },
+    });
+  }
+
+  getUserDetailsByUser() {
+    this.apiService.getUserDetilsByUser().subscribe({
+      next: (value) => {
+        console.log('from userdetails', value);
+        this.currentUser.update((prev) => {
+          return { ...prev, userDetails: value };
+        });
+        this.saveCurrentUserToLocalStorage({
+          ...this.currentUser(),
+          token: this.currentUser().token,
+          refreshToken: this.currentUser().refreshToken,
+        });
+      },
+      error: (error) => console.log(error),
+    });
+  }
+
+  updateUserPassword(userId: string, newPassword: string) {
+    this.apiService.changeUserPassword(userId, newPassword).subscribe({
+      next: () => {
+        console.log('password changed');
+      },
+      error: (error) => console.log(error),
     });
   }
 }

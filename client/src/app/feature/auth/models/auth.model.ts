@@ -7,6 +7,18 @@ export interface User {
   token: string;
   refreshToken: string;
   isSubscribed: boolean;
+  userDetails: UserDetails;
+}
+
+export interface UserDetails {
+  id: string;
+  phoneNumber: number;
+  age: number;
+  dateOfBirth: string;
+  gender: string;
+  city: string;
+  country: string;
+  userId: string;
 }
 
 export interface UserCredentails {
