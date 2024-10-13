@@ -5,6 +5,7 @@ import { AboutComponent } from './feature/about/about.component';
 import { ContactComponent } from './feature/contact/contact.component';
 import { NotFoundComponent } from './shared/not-found/not-found.component';
 import { AuthGuard, loginRegisterGuard } from './core/guards';
+import { UserPanelComponent } from './feature/auth/components/user-panel/user-panel.component';
 
 export const routes: Routes = [
   {
@@ -34,6 +35,11 @@ export const routes: Routes = [
       import(
         './feature/posts/components/post-details/post-details.component'
       ).then((c) => c.PostDetailsComponent),
+  },
+  {
+    path: 'user-details',
+    component: UserPanelComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: 'about',

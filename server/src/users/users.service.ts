@@ -1,8 +1,14 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import {
+  BadRequestException,
+  Injectable,
+  NotFoundException,
+} from '@nestjs/common';
 import { CreateUserDto } from './dto/create-user.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { User } from './entities/user.entity';
 import { Repository } from 'typeorm';
+import { hash, genSalt, genSaltSync } from 'bcryptjs';
+import { UpdateUserPasswordDto } from './dto/update-user-password.dto';
 
 @Injectable()
 export class UsersService {
@@ -18,6 +24,7 @@ export class UsersService {
         comments: true,
         ratings: true,
         posts: true,
+        userDetails: true,
       },
     });
   }
@@ -34,6 +41,21 @@ export class UsersService {
     } catch (error) {
       throw new NotFoundException('User not found');
     }
+  }
+
+  async updatePasswordOnUser(
+    userId: string,
+    updateUserPasswordDto: UpdateUserPasswordDto,
+  ) {
+    const foundUser = await this.findUserById(userId);
+
+    if (!foundUser) throw new BadRequestException('User not found');
+
+    const hashedPassword = await hash(updateUserPasswordDto.newPassword, 8);
+
+    foundUser.password = hashedPassword;
+
+    await this.usersRepo.save(foundUser);
   }
 
   async findUserByEmail(email: string) {
@@ -56,6 +78,17 @@ export class UsersService {
     });
 
     return foundUser.posts;
+  }
+
+  async findUserDetailsByUser(id: string) {
+    const foundUser = await this.usersRepo.findOne({
+      where: { id },
+      relations: { userDetails: true },
+    });
+
+    console.log('user details', foundUser);
+
+    return foundUser.userDetails;
   }
 
   async saveRefreshToken(userId: string, refreshToken: string) {
@@ -87,8 +120,6 @@ export class UsersService {
     subscription: 'subscribe' | 'unsubscribe',
   ) {
     const foundUser = await this.usersRepo.findOneBy({ id: userId });
-
-    console.log(foundUser);
 
     if (subscription === 'subscribe') {
       return await this.usersRepo.save({ ...foundUser, isSubscribed: true });

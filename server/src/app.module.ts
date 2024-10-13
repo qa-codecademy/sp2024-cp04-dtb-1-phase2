@@ -8,6 +8,7 @@ import { AuthModule } from './auth/auth.module';
 import { CommentsModule } from './comments/comments.module';
 import { PostsModule } from './posts/posts.module';
 import { RatingsModule } from './ratings/ratings.module';
+import { UserDetailsModule } from './user-details/user-details.module';
 
 @Module({
   imports: [
@@ -34,6 +35,7 @@ import { RatingsModule } from './ratings/ratings.module';
     CommentsModule,
     PostsModule,
     RatingsModule,
+    UserDetailsModule,
   ],
 
   controllers: [AppController],

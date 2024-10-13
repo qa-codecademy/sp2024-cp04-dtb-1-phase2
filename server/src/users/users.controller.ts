@@ -14,6 +14,7 @@ import { UsersService } from './users.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { User } from './entities/user.entity';
 import { AuthGuard } from 'src/auth/auth.guard';
+import { UpdateUserPasswordDto } from './dto/update-user-password.dto';
 
 @UseInterceptors(ClassSerializerInterceptor)
 @Controller('users')
@@ -23,6 +24,15 @@ export class UsersController {
   @Post()
   create(@Body() createUserDto: CreateUserDto) {
     return this.usersService.create(createUserDto);
+  }
+
+  @UseGuards(AuthGuard)
+  @Post('/change-password/:id')
+  changeUserPassword(
+    @Param('id') id: string,
+    @Body() updateUserPasswordDto: UpdateUserPasswordDto,
+  ) {
+    return this.usersService.updatePasswordOnUser(id, updateUserPasswordDto);
   }
 
   @Get()
@@ -41,6 +51,14 @@ export class UsersController {
     console.log(req.user);
 
     return this.usersService.findCommentsByUser(req.user.id);
+  }
+
+  @UseGuards(AuthGuard)
+  @Get('user-details')
+  findUserDetailsByUser(@Req() req: { user: User }) {
+    console.log(req.user);
+
+    return this.usersService.findUserDetailsByUser(req.user.id);
   }
 
   @Get('/subscription/:userSubscribe/:id')
