@@ -32,10 +32,10 @@ export class HeaderComponent {
   }
   //Hamburger manu:
   menuValue: boolean = false;
-  menu_icon: string = 'fa-solid fa-bars';
+  menu_icon: string = 'fa-solid fa-xmark';
   openMenu() {
     this.menuValue = !this.menuValue;
-    this.menu_icon = this.menuValue ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
+    this.menu_icon = this.menuValue ? 'fa-solid fa-bars' : 'fa-solid fa-xmark';
   }
   closeMenu() {
     this.menuValue = false;

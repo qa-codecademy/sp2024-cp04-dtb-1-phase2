@@ -4,16 +4,11 @@
       <div class="search-form">
         <div class="search-wrapper">
           <i class="fas fa-search search-icon"></i>
-          <input
-            type="text"
-            class="search-input"
-            placeholder="Search posts..."
-            [(ngModel)]="searchValue"
-          />
+          <input type="text" class="search-input" placeholder="Search posts..." [(ngModel)]="searchValue" />
         </div>
       </div>
-      <app-filter-panel />
     </div>
+    <app-filter-panel />
     <div class="post-list-container">
       <app-posts-list [searchValue]="searchValue()"></app-posts-list>
     </div>
