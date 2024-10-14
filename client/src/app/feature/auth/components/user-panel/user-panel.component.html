@@ -95,9 +95,9 @@
       </form>
       <div class="profile-panel-controls-container">
         @if(!isAuthInfoShown()){ @if(user().userDetails === null){
-        <app-button text="Add details" />
+        <app-button text="Add details" routerLink="/add-user-details" />
         } @else {
-        <app-button text="Edit details" />
+        <app-button text="Edit details" routerLink="/edit-user-details" />
         } } @else { @if(changePasswordForm.get("newPassword").value === null &&
         changePasswordForm.get("confirmNewPassword").value === null ) {
         <app-button

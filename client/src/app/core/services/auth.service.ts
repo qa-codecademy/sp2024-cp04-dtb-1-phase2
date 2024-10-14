@@ -1,5 +1,6 @@
 import { inject, Injectable, signal } from '@angular/core';
 import {
+  CreateUserDetailsReq,
   RegisterReq,
   User,
   UserCredentails,
@@ -127,7 +128,6 @@ export class AuthService {
   getUserDetailsByUser() {
     this.apiService.getUserDetilsByUser().subscribe({
       next: (value) => {
-        console.log('from userdetails', value);
         this.currentUser.update((prev) => {
           return { ...prev, userDetails: value };
         });
@@ -148,5 +148,32 @@ export class AuthService {
       },
       error: (error) => console.log(error),
     });
+  }
+
+  createUserDetails(userId: string, createUserDetails: CreateUserDetailsReq) {
+    this.apiService.createUserDetails(userId, createUserDetails).subscribe({
+      next: () => {
+        console.log('User details created');
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
+  }
+
+  editUserDetails(
+    userDetailsId: string,
+    editUserDetailsData: CreateUserDetailsReq
+  ) {
+    this.apiService
+      .updateUserDetails(userDetailsId, editUserDetailsData)
+      .subscribe({
+        next: () => {
+          console.log('User details edited');
+        },
+        error: (err) => {
+          console.log(err);
+        },
+      });
   }
 }

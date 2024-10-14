@@ -21,6 +21,15 @@ export interface UserDetails {
   userId: string;
 }
 
+export interface CreateUserDetailsReq {
+  phoneNumber: number;
+  age: number;
+  dateOfBirth: string;
+  gender: string;
+  city: string;
+  country: string;
+}
+
 export interface UserCredentails {
   email: string;
   password: string;

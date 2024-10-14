@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import {
+  CreateUserDetailsReq,
   RegisterReq,
   User,
   UserCredentails,
@@ -59,5 +60,19 @@ export class AuthApiService {
     return this.http.post(`${BASE_URL}/users/change-password/${userId}`, {
       newPassword,
     });
+  }
+
+  createUserDetails(userId: string, createUserReq: CreateUserDetailsReq) {
+    return this.http.post(`${BASE_URL}/user-details/${userId}`, createUserReq);
+  }
+
+  updateUserDetails(
+    userDetailsId: string,
+    updateUserDetails: Partial<CreateUserDetailsReq>
+  ) {
+    return this.http.patch(
+      `${BASE_URL}/user-details/${userDetailsId}`,
+      updateUserDetails
+    );
   }
 }

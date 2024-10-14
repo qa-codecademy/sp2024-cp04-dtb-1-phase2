@@ -86,8 +86,6 @@ export class UsersService {
       relations: { userDetails: true },
     });
 
-    console.log('user details', foundUser);
-
     return foundUser.userDetails;
   }
 
