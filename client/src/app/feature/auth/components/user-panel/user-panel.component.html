@@ -31,30 +31,30 @@
         <div class="profile-panel-info-row">
           <strong>Date of birth:</strong>
           <div class="info-row-data-div">
-            {{ user().userDetails.dateOfBirth }}
+            {{ user().userDetails?.dateOfBirth }}
           </div>
         </div>
         <div class="profile-panel-info-row">
           <strong>Age:</strong>
-          <div class="info-row-data-div">{{ user().userDetails.age }}</div>
+          <div class="info-row-data-div">{{ user().userDetails?.age }}</div>
         </div>
         <div class="profile-panel-info-row">
           <strong>Gender:</strong>
-          <div class="info-row-data-div">{{ user().userDetails.gender }}</div>
+          <div class="info-row-data-div">{{ user().userDetails?.gender }}</div>
         </div>
         <div class="profile-panel-info-row">
           <strong>Phone number:</strong>
           <div class="info-row-data-div">
-            {{ user().userDetails.phoneNumber }}
+            {{ user().userDetails?.phoneNumber }}
           </div>
         </div>
         <div class="profile-panel-info-row">
           <strong>Country:</strong>
-          <div class="info-row-data-div">{{ user().userDetails.country }}</div>
+          <div class="info-row-data-div">{{ user().userDetails?.country }}</div>
         </div>
         <div class="profile-panel-info-row">
           <strong>City:</strong>
-          <div class="info-row-data-div">{{ user().userDetails.city }}</div>
+          <div class="info-row-data-div">{{ user().userDetails?.city }}</div>
         </div>
       </div>
       <form
@@ -94,17 +94,17 @@
         }
       </form>
       <div class="profile-panel-controls-container">
-        @if(!isAuthInfoShown()){ @if(user().userDetails === null){
+        @if(!user().userDetails) {
         <app-button text="Add details" routerLink="/add-user-details" />
         } @else {
         <app-button text="Edit details" routerLink="/edit-user-details" />
-        } } @else { @if(changePasswordForm.get("newPassword").value === null &&
+        } @if(changePasswordForm.get("newPassword").value === null &&
         changePasswordForm.get("confirmNewPassword").value === null ) {
         <app-button
           text="Change password"
           (btnClick)="onSubmitChangePassForm()"
         />
-        } }
+        }
         <app-button
           text="Logout"
           (btnClick)="onLogoutClick()"
