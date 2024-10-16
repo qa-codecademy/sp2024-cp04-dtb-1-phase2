@@ -112,3 +112,16 @@
   align-items: center;
   justify-content: center;
 }
+
+@media only screen and (max-width: 440px) {
+  .profile-panel {
+    padding: 40px;
+    background-color: var(--translucent-color);
+    width: 600px;
+    min-height: 500px;
+    display: grid;
+    place-items: center;
+    color: var(--font-color);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.14), 0 6px 6px rgba(0, 0, 0, 0.28);
+  }
+}
