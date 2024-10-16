@@ -1,18 +1,19 @@
 .profile-page {
   display: grid;
   place-items: center;
-  min-height: 800px;
+  min-height: 700px;
   color: var(--font-color);
 }
 
 .profile-panel {
   padding: 40px;
   background-color: var(--translucent-color);
-  width: 800px;
+  width: 600px;
   min-height: 500px;
   display: grid;
   place-items: center;
   color: var(--font-color);
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.14), 0 6px 6px rgba(0, 0, 0, 0.28);
 }
 
 .profile-panel-image-container {
@@ -40,13 +41,11 @@
 
 .profile-panel-infomations-nav {
   border: none;
-  border-radius: 4px;
   display: flex;
-  justify-content: space-evenly;
-  gap: 10px;
+  justify-content: space-between;
+  gap: 30px;
 
   h2 {
-    margin: 0;
     font-size: 20px;
     color: var(--font-color);
   }
@@ -54,8 +53,8 @@
 
 .profile-panel-nav-container {
   height: max-content;
-  color: black;
-  padding: 10px;
+  color: var(--font-color);
+  padding: 5px;
   cursor: pointer;
   border-color: var(--font-color);
 }
@@ -64,7 +63,8 @@
   min-height: 400px;
   display: flex;
   flex-direction: column;
-  gap: 25px;
+  gap: 20px;
+  padding-left: 10px;
 
   h2 {
     margin: 0;
@@ -72,7 +72,7 @@
   }
 
   strong {
-    font-size: 20px;
+    font-size: 17px;
     color: var(--font-color);
   }
 }
@@ -90,7 +90,7 @@
     width: 230px;
     border-radius: 5px;
     box-shadow: 0 10px 15px rgba(0, 0, 0, 0.14), 0 6px 6px rgba(0, 0, 0, 0.28);
-    color: black;
+    color: var(--info-font);
     padding: 5px;
   }
 }
@@ -100,8 +100,9 @@
   width: 230px;
   border-radius: 5px;
   box-shadow: 0 10px 15px rgba(0, 0, 0, 0.14), 0 6px 6px rgba(0, 0, 0, 0.28);
-  color: black;
+  color: var(--info-font);
   padding: 5px;
+  font-size: 14px;
 }
 
 .profile-panel-controls-container {
