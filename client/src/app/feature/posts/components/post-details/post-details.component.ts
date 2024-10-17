@@ -1,7 +1,7 @@
 import { Component, computed, inject, OnInit, signal } from '@angular/core';
 import { PostsService } from '../../../../core/services/posts.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { DatePipe } from '@angular/common';
+import { DatePipe, NgClass } from '@angular/common';
 import { CommentFormComponent } from '../comment-form/comment-form.component';
 import { CommentListComponent } from '../comment-list/comment-list.component';
 import { ButtonComponent } from '../../../../shared/button/button.component';
@@ -18,6 +18,7 @@ import { PostComment, PostCommentForm } from '../../models/post.model';
     CommentListComponent,
     ButtonComponent,
     RatingFormPanelComponent,
+    NgClass,
   ],
   templateUrl: './post-details.component.html',
   styleUrl: './post-details.component.scss',

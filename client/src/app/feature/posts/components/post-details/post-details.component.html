@@ -34,7 +34,13 @@
         }}, }
       </p>
       @if(currentUser()){
-      <div class="rating-container">
+      <div
+        [ngClass]="
+          currentUser().id === post().user.id
+            ? 'rating-container disable-rating'
+            : 'rating-container'
+        "
+      >
         <app-rating-form-panel
           [startingValue]="rating()"
           (ratingOutput)="onChangeRating($event)"

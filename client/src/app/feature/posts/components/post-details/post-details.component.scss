@@ -123,3 +123,7 @@
     color: var(--font-color);
   }
 }
+
+.disable-rating {
+  pointer-events: none;
+}
