@@ -182,7 +182,11 @@ export class PostsService {
   createPostRating(userId: string, postId: number, rating: number) {
     this.apiService.postRating(userId, postId, rating).subscribe({
       next: () => {},
-      error: (error) => console.log(error),
+      error: (error) =>
+        this.notificationsService.showToast(
+          'You cannot add rating for your post',
+          false
+        ),
     });
   }
 

@@ -116,8 +116,16 @@ export class AuthService {
   ) {
     this.apiService.changeSubscribe(userId, subscription).subscribe({
       next: () => {
-        console.log('Subscribe successfuly changed!');
-        this.getUserById(this.currentUser().id);
+        subscription === 'subscribe'
+          ? this.notificationsService.showToast(
+              'You are now subscribed to our newslatter',
+              true
+            )
+          : this.notificationsService.showToast(
+              'You are now unsubscribed from our newsletter',
+              false
+            ),
+          this.getUserById(this.currentUser().id);
       },
       error: (error) => {
         console.log(error);
@@ -144,7 +152,10 @@ export class AuthService {
   updateUserPassword(userId: string, newPassword: string) {
     this.apiService.changeUserPassword(userId, newPassword).subscribe({
       next: () => {
-        console.log('password changed');
+        this.notificationsService.showToast(
+          'Password changed successfully',
+          true
+        );
       },
       error: (error) => console.log(error),
     });
@@ -153,7 +164,10 @@ export class AuthService {
   createUserDetails(userId: string, createUserDetails: CreateUserDetailsReq) {
     this.apiService.createUserDetails(userId, createUserDetails).subscribe({
       next: () => {
-        console.log('User details created');
+        this.notificationsService.showToast(
+          'User details created successfully',
+          true
+        );
       },
       error: (err) => {
         console.log(err);
@@ -169,7 +183,10 @@ export class AuthService {
       .updateUserDetails(userDetailsId, editUserDetailsData)
       .subscribe({
         next: () => {
-          console.log('User details edited');
+          this.notificationsService.showToast(
+            'User details changed successfully',
+            true
+          );
         },
         error: (err) => {
           console.log(err);

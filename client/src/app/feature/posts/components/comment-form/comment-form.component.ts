@@ -28,16 +28,7 @@ export class CommentFormComponent {
   maxLength = 150;
   isSubbmited = signal<boolean>(false);
 
-  editCommentInput = input<PostComment>(null);
   commentOutput = output<string>();
-
-  constructor() {
-    effect(() => {
-      if (this.editCommentInput()) {
-        this.populateEditForm(this.editCommentInput());
-      }
-    });
-  }
 
   commentForm = new FormGroup({
     text: new FormControl('', [
@@ -45,21 +36,6 @@ export class CommentFormComponent {
       Validators.maxLength(this.maxLength),
     ]),
   });
-
-  populateEditForm(editCommentData: PostComment) {
-    this.commentForm.setValue({
-      text: editCommentData.text,
-    });
-  }
-
-  onEditComment() {
-    this.postsService.editComment(
-      this.editCommentInput().id,
-      this.commentForm.controls.text.value
-    );
-
-    this.commentForm.reset();
-  }
 
   onFormSubmit() {
     this.commentForm.markAllAsTouched();

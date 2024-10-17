@@ -15,13 +15,8 @@ export class CommentListComponent {
   private postsService = inject(PostsService);
   comments = input.required<PostComment[]>();
   currentUser = inject(AuthService).currentUser;
-  commnetOutput = output<PostComment>();
 
   onCommentDelete(commentId: number) {
     this.postsService.deleteComment(commentId);
-  }
-
-  odCommentEdit(comment: PostComment) {
-    this.commnetOutput.emit(comment);
   }
 }

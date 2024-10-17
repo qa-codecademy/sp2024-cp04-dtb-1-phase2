@@ -16,11 +16,7 @@
         <div>
           {{ commentForm.controls.text.value.length }} / {{ maxLength }}
         </div>
-        @if(!editCommentInput()) {
         <app-button text="Publish" type="submit" />
-        } @else {
-        <app-button text="Edit" type="button" (btnClick)="onEditComment()" />
-        }
       </div>
     </div>
   </form>
