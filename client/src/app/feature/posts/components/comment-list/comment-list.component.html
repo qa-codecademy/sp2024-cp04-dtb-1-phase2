@@ -3,7 +3,7 @@
     @for(comment of comments(); track comment.id) {
     <li class="comment-item">
       <div class="comment-info">
-        <span> {{ comment.text }}</span>
+        <span>{{ comment.text }}</span>
         @if(comment.user.id === currentUser().id){
         <div class="post-button-controls-container">
           <button class="delete-button" (click)="onCommentDelete(comment.id)">
