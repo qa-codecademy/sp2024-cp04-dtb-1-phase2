@@ -16,6 +16,10 @@
       type="text"
       placeholder="Your post image url..."
     />
+    @if(postForm.get('image').touched && postForm.get('image').errors?.validUrl
+    && postForm.get('image').value.length > 0 ) {
+    <p class="form-error">Enter valid image url.</p>
+    }
   </div>
   <div class="form-group">
     <label for="text">Text</label>

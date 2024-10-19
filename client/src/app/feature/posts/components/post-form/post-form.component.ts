@@ -52,7 +52,7 @@ export class PostFormComponent {
         Validators.required,
         Validators.maxLength(200),
       ]),
-      image: new FormControl('', [Validators.required]),
+      image: new FormControl('', [Validators.required, this.urlValidator]),
       text: new FormControl('', [Validators.required]),
       tags: new FormControl('', [Validators.required]),
     });
@@ -92,5 +92,21 @@ export class PostFormComponent {
     };
 
     this.subbmitOutput.emit(createPostData);
+  }
+
+  urlValidator(control: FormControl): { [key: string]: boolean } | null {
+    console.log(control.value.toLowerCase().includes('.jpeg'));
+    if (
+      !control.value.startsWith('http') ||
+      !(
+        control.value.toLowerCase().includes('jpg') ||
+        control.value.toLowerCase().includes('png') ||
+        control.value.toLowerCase().includes('webp') ||
+        control.value.toLowerCase().includes('jpeg')
+      )
+    ) {
+      return { validUrl: true };
+    }
+    return null;
   }
 }
