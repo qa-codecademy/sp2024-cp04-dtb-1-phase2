@@ -10,6 +10,7 @@ import { RouterLink } from '@angular/router';
 import { RegisterReq } from '../../models/auth.model';
 import { AuthService } from '../../../../core/services/auth.service';
 import { ButtonComponent } from '../../../../shared/button/button.component';
+import isEmail from 'validator/lib/isEmail';
 
 @Component({
   selector: 'app-register',
@@ -32,18 +33,24 @@ export class RegisterComponent {
           Validators.required,
           Validators.minLength(3),
           Validators.maxLength(20),
+          this.nameValidator,
         ]),
         lastName: new FormControl('', [
           Validators.required,
           Validators.minLength(3),
           Validators.maxLength(20),
+          this.nameValidator,
         ]),
         username: new FormControl('', [
           Validators.required,
           Validators.minLength(6),
           Validators.maxLength(20),
         ]),
-        email: new FormControl('', [Validators.required, Validators.email]),
+        email: new FormControl('', [
+          Validators.required,
+          Validators.minLength(15),
+          this.emailValidator,
+        ]),
         password: new FormControl('', [
           Validators.required,
           Validators.minLength(8),
@@ -53,6 +60,25 @@ export class RegisterComponent {
       },
       this.confirmPasswordValidator
     );
+  }
+
+  nameValidator(control: FormControl): { [key: string]: boolean } | null {
+    let firstNameRegex = '^[a-zA-Z]+$';
+
+    if (!control.value.match(firstNameRegex)) {
+      return { validName: true };
+    }
+
+    return null;
+  }
+
+  emailValidator(control: FormControl): { [key: string]: boolean } | null {
+    console.log('email validator', isEmail(control.value));
+    if (!isEmail(control.value)) {
+      return { validEmail: true };
+    }
+
+    return null;
   }
 
   confirmPasswordValidator(form: AbstractControl): null {
