@@ -21,7 +21,9 @@
           <p>{{ post().user.username }}</p>
           <div class="post-info">
             <p>{{ post().date | date }}</p>
-            <samp>{{ postRating() }}<i class="fa-regular fa-star"></i></samp>
+            <samp
+              >{{ postRating().toFixed(2) }}<i class="fa-regular fa-star"></i
+            ></samp>
           </div>
         </div>
       </div>

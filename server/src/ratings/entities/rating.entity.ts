@@ -13,7 +13,7 @@ export class Rating {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column()
+  @Column('real')
   rating: number;
 
   @ManyToOne(() => User, (user) => user.ratings)
