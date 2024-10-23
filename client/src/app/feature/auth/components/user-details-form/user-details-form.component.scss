@@ -29,6 +29,10 @@
       color: var(--font-search-text);
     }
 
+    input.ng-touched.ng-invalid {
+      box-shadow: 0 5px 10px #7b1d20, 0 2px 4px #7b1d20;
+    }
+
     textarea {
       resize: vertical;
       min-height: 180px;

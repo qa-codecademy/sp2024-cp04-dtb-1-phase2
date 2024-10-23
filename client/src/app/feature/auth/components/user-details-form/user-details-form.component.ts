@@ -23,12 +23,34 @@ export class UserDetailsFormComponent {
 
   generateUserDetailsFrom() {
     return new FormGroup({
-      phoneNumber: new FormControl('', [Validators.required]),
-      age: new FormControl<number>(null, [Validators.required]),
-      dateOfBirth: new FormControl('', [Validators.required]),
-      gender: new FormControl('', [Validators.required]),
-      city: new FormControl('', [Validators.required]),
-      country: new FormControl('', [Validators.required]),
+      phoneNumber: new FormControl('', [
+        Validators.required,
+        Validators.minLength(9),
+      ]),
+      age: new FormControl<number>(null, [
+        Validators.required,
+        Validators.min(0),
+        Validators.max(110),
+      ]),
+      dateOfBirth: new FormControl('', [
+        Validators.required,
+        Validators.minLength(10),
+      ]),
+      gender: new FormControl('', [
+        Validators.required,
+        Validators.minLength(4),
+        Validators.maxLength(6),
+      ]),
+      city: new FormControl('', [
+        Validators.required,
+        Validators.minLength(3),
+        Validators.maxLength(30),
+      ]),
+      country: new FormControl('', [
+        Validators.required,
+        Validators.minLength(3),
+        Validators.maxLength(40),
+      ]),
     });
   }
 
@@ -63,9 +85,9 @@ export class UserDetailsFormComponent {
     this.userDetailsFrom.markAllAsTouched();
     this.isSubbmited.set(true);
 
-    if (this.userDetailsFrom.invalid) return;
+    console.log(this.userDetailsFrom.invalid);
 
-    console.log(this.userDetailsFrom.value);
+    if (this.userDetailsFrom.invalid) return;
 
     const userDetailsData: CreateUserDetailsReq = {
       phoneNumber: Number(this.userDetailsFrom.controls.phoneNumber.value),

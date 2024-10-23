@@ -5,7 +5,7 @@
       id="phoneNumber"
       type="text"
       formControlName="phoneNumber"
-      placeholder="Your phone number"
+      placeholder="Your phone number (123-456-789)"
     />
   </div>
   <div class="form-group">
@@ -49,7 +49,7 @@
     />
   </div>
   <div class="error-form-message-container">
-    @if(isSubbmited() && userDetailsFrom.invalid && userDetailsFrom.touched){
+    @if(isSubbmited() && userDetailsFrom.touched && userDetailsFrom.invalid ){
     <p class="form-error">All fileds are required!</p>
     }
   </div>

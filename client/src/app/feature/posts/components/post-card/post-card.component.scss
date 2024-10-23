@@ -32,6 +32,11 @@
     color: var(--font-color);
   }
 }
+
+.description-post-title-text-container {
+  height: 95px;
+}
+
 .post-info {
   display: flex;
   justify-content: space-between;
@@ -53,11 +58,22 @@
   justify-content: space-between;
   align-items: center;
   text-align: center;
-  padding-top: 30px;
+  padding-top: 15px;
 }
 
 .tag-span {
   color: var(--font-blue);
+}
+
+.paragraph {
+  display: -webkit-box;
+  white-space: wrap;
+  width: 600px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-clamp: 3;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
 }
 
 //RESPONSE POST-CARD

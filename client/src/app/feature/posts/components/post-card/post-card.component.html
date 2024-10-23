@@ -2,14 +2,16 @@
   <div class="item-post">
     <img src="{{ post().image }}" class="image-post" />
     <div class="description-post">
-      <h2>{{ post().title }}</h2>
-      <p>
-        {{ post().text }}
-      </p>
-      <div class="tags-container">
-        @for(tag of post().tags; track $index){
-        <span class="tag-span">#{{ tag }} </span>
-        }
+      <div class="description-post-title-text-container">
+        <h2>{{ post().title }}</h2>
+        <p class="paragraph">
+          {{ post().text }}
+        </p>
+        <div class="tags-container">
+          @for(tag of post().tags; track $index){
+          <span class="tag-span">#{{ tag }} </span>
+          }
+        </div>
       </div>
       <div class="post-button-container">
         <app-button

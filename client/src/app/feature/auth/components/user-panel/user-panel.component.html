@@ -94,16 +94,15 @@
         }
       </form>
       <div class="profile-panel-controls-container">
-        @if(!user().userDetails) {
-        <app-button text="Add details" routerLink="/add-user-details" />
-        } @else {
-        <app-button text="Edit details" routerLink="/edit-user-details" />
-        } @if(changePasswordForm.get("newPassword").value === null &&
-        changePasswordForm.get("confirmNewPassword").value === null ) {
+        @if(isAuthInfoShown()){
         <app-button
           text="Change password"
           (btnClick)="onSubmitChangePassForm()"
         />
+        } @if(!isAuthInfoShown() && !user().userDetails){
+        <app-button text="Add details" routerLink="/add-user-details" />
+        } @else if(!isAuthInfoShown() && user().userDetails) {
+        <app-button text="Edit details" routerLink="/edit-user-details" />
         }
         <app-button
           text="Logout"
