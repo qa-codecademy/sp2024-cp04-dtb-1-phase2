@@ -9,6 +9,10 @@ import { UserPanelComponent } from './feature/auth/components/user-panel/user-pa
 import { AddUserDetailsComponent } from './feature/auth/components/add-user-details/add-user-details.component';
 import { EditUserDetailsComponent } from './feature/auth/components/edit-user-details/edit-user-details.component';
 import { CareerPageComponent } from './shared/footer-components/career-page/career-page.component';
+import { PrivacyPolicyPageComponent } from './shared/footer-components/privacy-policy-page/privacy-policy-page.component';
+import { FaqPageComponent } from './shared/footer-components/faq-page/faq-page.component';
+import { HelpCentarPageComponent } from './shared/footer-components/help-centar-page/help-centar-page.component';
+import { ProfesionalServicesPageComponent } from './shared/footer-components/profesional-services-page/profesional-services-page.component';
 
 export const routes: Routes = [
   {
@@ -75,6 +79,22 @@ export const routes: Routes = [
   {
     path: 'careers',
     component: CareerPageComponent,
+  },
+  {
+    path: 'privacy-policy',
+    component: PrivacyPolicyPageComponent,
+  },
+  {
+    path: 'faq',
+    component: FaqPageComponent,
+  },
+  {
+    path: 'professional-services',
+    component: ProfesionalServicesPageComponent,
+  },
+  {
+    path: 'help-centar',
+    component: HelpCentarPageComponent,
   },
   {
     path: 'not-found',

@@ -1,4 +1,4 @@
-.privacy-page {
+.container {
   max-width: 1300px;
   margin: 0 auto;
   padding: 40px;
@@ -7,11 +7,20 @@
   border-radius: 5px;
 
   h1 {
+    color: var(--font-color);
+    margin-bottom: 20px;
     text-align: center;
   }
 
   h2 {
     color: var(--font-color);
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+
+  h3 {
+    color: var(--font-color);
+    margin-top: 15px;
   }
 
   p,
