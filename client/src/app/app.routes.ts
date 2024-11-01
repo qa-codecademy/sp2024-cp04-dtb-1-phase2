@@ -8,6 +8,7 @@ import { AuthGuard, loginRegisterGuard } from './core/guards';
 import { UserPanelComponent } from './feature/auth/components/user-panel/user-panel.component';
 import { AddUserDetailsComponent } from './feature/auth/components/add-user-details/add-user-details.component';
 import { EditUserDetailsComponent } from './feature/auth/components/edit-user-details/edit-user-details.component';
+import { CareerPageComponent } from './shared/footer-components/career-page/career-page.component';
 
 export const routes: Routes = [
   {
@@ -70,6 +71,10 @@ export const routes: Routes = [
     path: 'register',
     component: RegisterComponent,
     canActivate: [loginRegisterGuard],
+  },
+  {
+    path: 'careers',
+    component: CareerPageComponent,
   },
   {
     path: 'not-found',
