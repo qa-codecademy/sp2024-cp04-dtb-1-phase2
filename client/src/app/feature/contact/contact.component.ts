@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import {
   FormControl,
   FormGroup,
@@ -6,6 +6,8 @@ import {
   Validators,
 } from '@angular/forms';
 import { ButtonComponent } from '../../shared/button/button.component';
+import { ContactService } from '../../core/services/contact.service';
+import { ContactModel } from './models/contact.model';
 
 @Component({
   selector: 'app-contact',
@@ -15,9 +17,11 @@ import { ButtonComponent } from '../../shared/button/button.component';
   styleUrl: './contact.component.scss',
 })
 export class ContactComponent {
+  private contactService = inject(ContactService);
   contactForm = this.generateContactForm();
 
   messageMaxLength = 250;
+  messageMinLength = 50;
 
   generateContactForm() {
     return new FormGroup({
@@ -27,6 +31,7 @@ export class ContactComponent {
       mobile: new FormControl('', Validators.required),
       message: new FormControl('', [
         Validators.required,
+        Validators.minLength(this.messageMinLength),
         Validators.maxLength(this.messageMaxLength),
       ]),
     });
@@ -39,6 +44,14 @@ export class ContactComponent {
 
     console.log(this.contactForm.value);
 
-    this.contactForm.reset();
+    const contactReq: ContactModel = {
+      firstName: this.contactForm.controls.firstName.value,
+      lastName: this.contactForm.controls.lastName.value,
+      email: this.contactForm.controls.email.value,
+      phoneNumber: this.contactForm.controls.mobile.value,
+      message: this.contactForm.controls.message.value,
+    };
+
+    this.contactService.createContact(contactReq);
   }
 }

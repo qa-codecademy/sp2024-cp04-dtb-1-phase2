@@ -9,6 +9,7 @@ import { CommentsModule } from './comments/comments.module';
 import { PostsModule } from './posts/posts.module';
 import { RatingsModule } from './ratings/ratings.module';
 import { UserDetailsModule } from './user-details/user-details.module';
+import { ContactModule } from './contact/contact.module';
 
 @Module({
   imports: [
@@ -36,6 +37,7 @@ import { UserDetailsModule } from './user-details/user-details.module';
     PostsModule,
     RatingsModule,
     UserDetailsModule,
+    ContactModule,
   ],
 
   controllers: [AppController],
