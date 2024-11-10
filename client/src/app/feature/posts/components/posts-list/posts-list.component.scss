@@ -19,3 +19,12 @@
   align-items: center;
   text-align: center;
 }
+
+@media only screen and (max-width: 440px) {
+  .no-posts-found-container {
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    text-align: center;
+  }
+}

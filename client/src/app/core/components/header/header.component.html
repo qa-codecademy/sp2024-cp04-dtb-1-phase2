@@ -6,12 +6,7 @@
     <nav class="Navbar">
       <ul>
         <li>
-          <a
-            routerLink="/"
-            routerLinkActive="active"
-            [routerLinkActiveOptions]="{ exact: true }"
-            >Posts</a
-          >
+          <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Posts</a>
         </li>
         @if(currentUser()){
         <li>
@@ -31,18 +26,13 @@
         </li>
         }
         <li>
-          <a routerLink="/user-details" routerLinkActive="active"
-            ><i class="fa-solid fa-user"></i> {{ currentUser()?.username }}</a
-          >
+          <a routerLink="/user-details" routerLinkActive="active"><i class="fa-solid fa-user"></i> {{
+            currentUser()?.username }}</a>
         </li>
         } @else {
         <li><a routerLink="/login" routerLinkActive="active">Login</a></li>
         }
-        <li
-          routerLinkActive="active"
-          class="theme-icon"
-          (click)="onToogleClick()"
-        >
+        <li routerLinkActive="active" class="theme-icon" (click)="onToogleClick()">
           @if(toogleTheme()){
           <i class="fa-regular fa-lightbulb"></i>
           } @else {

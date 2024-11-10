@@ -32,14 +32,14 @@ export class HeaderComponent {
   }
   //Hamburger manu:
   menuValue: boolean = false;
-  menu_icon: string = 'fa-solid fa-xmark';
+  menu_icon: string = 'fa-solid fa-bars';
   openMenu() {
     this.menuValue = !this.menuValue;
-    this.menu_icon = this.menuValue ? 'fa-solid fa-bars' : 'fa-solid fa-xmark';
+    this.menu_icon = this.menuValue ? 'fa-solid fa-bars' : 'fa-solid fa-bars';
   }
   closeMenu() {
     this.menuValue = false;
-    this.menu_icon = 'fa-solid fa-xmark';
+    this.menu_icon = 'fa-solid fa-bars';
   }
 
   onLogOutClick() {
