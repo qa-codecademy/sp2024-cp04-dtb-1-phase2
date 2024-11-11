@@ -44,7 +44,7 @@
         transition: background-color 0.2s ease;
 
         &:hover {
-          background-color: #0066b2;
+          background-color: var(--font-blue);
         }
       }
 
