@@ -52,7 +52,7 @@ export class PostFormComponent {
         Validators.required,
         Validators.maxLength(200),
       ]),
-      image: new FormControl('', [Validators.required, this.urlValidator]),
+      image: new FormControl('', [Validators.required]),
       text: new FormControl('', [Validators.required]),
       tags: new FormControl('', [Validators.required]),
     });
@@ -71,6 +71,8 @@ export class PostFormComponent {
     this.postForm.markAllAsTouched();
     this.isSubbmited.set(true);
 
+    console.log(this.postForm.value);
+
     if (this.postForm.invalid) return;
 
     this.isPreviewed.set(true);
@@ -80,6 +82,8 @@ export class PostFormComponent {
 
   onFormSubbmit() {
     this.postForm.markAllAsTouched();
+
+    console.log(this.postForm.value);
 
     if (this.postForm.invalid) return;
 
@@ -91,22 +95,41 @@ export class PostFormComponent {
       tags: this.postForm.get('tags').value.split(','),
     };
 
+    console.log(createPostData);
+
     this.subbmitOutput.emit(createPostData);
   }
 
-  urlValidator(control: FormControl): { [key: string]: boolean } | null {
-    console.log(control.value.toLowerCase().includes('.jpeg'));
-    if (
-      !control.value.startsWith('http') ||
-      !(
-        control.value.toLowerCase().includes('jpg') ||
-        control.value.toLowerCase().includes('png') ||
-        control.value.toLowerCase().includes('webp') ||
-        control.value.toLowerCase().includes('jpeg')
-      )
-    ) {
-      return { validUrl: true };
+  // urlValidator(control: FormControl): { [key: string]: boolean } | null {
+  //   console.log(control.value.toLowerCase().includes('.jpeg'));
+  //   if (
+  //     !control.value.startsWith('http') ||
+  //     !(
+  //       control.value.toLowerCase().includes('jpg') ||
+  //       control.value.toLowerCase().includes('png') ||
+  //       control.value.toLowerCase().includes('webp') ||
+  //       control.value.toLowerCase().includes('jpeg')
+  //     )
+  //   ) {
+  //     return { validUrl: true };
+  //   }
+  //   return null;
+  // }
+
+  onFileSelected(event: any): void {
+    console.log('on image file change');
+    console.log(event);
+    const file = event.target.files[0];
+    if (file) {
+      this.convertFileToBase64(file);
     }
-    return null;
+  }
+
+  private convertFileToBase64(file: File): void {
+    const reader = new FileReader();
+    reader.onload = (e: any) => {
+      this.postForm.controls['image'].setValue(e.target.result);
+    };
+    reader.readAsDataURL(file);
   }
 }
