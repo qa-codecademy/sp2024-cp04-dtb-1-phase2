@@ -35,13 +35,13 @@ export class Post {
   })
   tags: string[];
 
-  @ManyToOne(() => User, (user) => user.posts)
+  @ManyToOne(() => User, (user) => user.posts, { onDelete: 'CASCADE' })
   @JoinColumn({ name: 'userId' })
   user: User;
 
-  @OneToMany(() => Comment, (comment) => comment.post)
+  @OneToMany(() => Comment, (comment) => comment.post, { onDelete: 'CASCADE' })
   comments: Comment[];
 
-  @OneToMany(() => Rating, (ratings) => ratings.post)
+  @OneToMany(() => Rating, (ratings) => ratings.post, { onDelete: 'CASCADE' })
   ratings: Rating[];
 }

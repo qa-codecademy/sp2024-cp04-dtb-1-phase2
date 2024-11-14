@@ -40,11 +40,12 @@
     border-bottom: 1px solid var(--font-color);
     padding-bottom: 15px;
 
-    h2.post-page-hader-h2 {
+    .post-page-hader-h2 {
       font-size: 28px;
       font-weight: 600;
       color: var(--font-white);
       margin: 0;
+      text-align: left;
     }
 
     small {
@@ -84,6 +85,8 @@
   }
 
   .post-page-image-div-container {
+    display: flex;
+    justify-content: center;
     margin-bottom: 20px;
 
     .main-image {

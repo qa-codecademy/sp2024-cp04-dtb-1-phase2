@@ -120,6 +120,8 @@ export class PostsService {
     this.apiService.deletePost(postId).subscribe({
       next: () => {
         this.notificationsService.showToast('Successfully deleted post!', true);
+        this.posts.set([]);
+        this.router.navigate([`/`]);
       },
       error: (error) => console.log(error),
     });
@@ -193,8 +195,9 @@ export class PostsService {
   findRatingByUserAndPost(userId: string, postId: number) {
     this.apiService.getRatingByUserAndPost(userId, postId).subscribe({
       next: (value) => {
-        console.log(value);
-        this.selectedRating.set(value.rating);
+        if (value !== null) {
+          this.selectedRating.set(value.rating);
+        }
       },
       error: (error) => console.log(error),
     });

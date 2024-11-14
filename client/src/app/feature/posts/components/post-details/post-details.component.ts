@@ -57,8 +57,6 @@ export class PostDetailsComponent implements OnInit {
   onPostNavigate(route: 'delete' | 'edit') {
     if (route === 'delete') {
       this.postsService.deletePost(this.post().id);
-
-      this.router.navigate(['/']);
     }
 
     if (route === 'edit') {

@@ -16,11 +16,11 @@ export class Rating {
   @Column('real')
   rating: number;
 
-  @ManyToOne(() => User, (user) => user.ratings)
+  @ManyToOne(() => User, (user) => user.ratings, { onDelete: 'CASCADE' })
   @JoinColumn()
   user: User;
 
-  @ManyToOne(() => Post, (post) => post.ratings)
+  @ManyToOne(() => Post, (post) => post.ratings, { onDelete: 'CASCADE' })
   @JoinColumn()
   post: Post;
 }
