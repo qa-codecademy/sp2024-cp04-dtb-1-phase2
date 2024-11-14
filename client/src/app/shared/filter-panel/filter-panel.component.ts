@@ -51,5 +51,6 @@ export class FilterPanelComponent {
     this.postsService.posts.set([]);
     this.postsService.getPosts();
     this.filterForm.reset();
+    this.filterForm.controls['mainFilter'].setValue('');
   }
 }

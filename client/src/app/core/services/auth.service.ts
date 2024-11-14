@@ -35,7 +35,9 @@ export class AuthService {
         );
         this.router.navigate(['login']);
       },
-      error: (error) => console.log(error),
+      error: (err) => {
+        this.notificationsService.showToast(err.error.message, false);
+      },
     });
   }
 
