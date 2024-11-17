@@ -158,3 +158,51 @@
     display: none;
   }
 }
+
+@media only screen and (max-width: 600px) {
+  .about {
+    h1 {
+      font-size: 35px;
+      margin-bottom: 10px;
+    }
+  }
+  .about {
+    p {
+      font-size: 18px;
+      font-weight: 300;
+      margin: 10px;
+    }
+  }
+
+  .team h1 {
+    font-size: 30px;
+  }
+
+  .card {
+    width: 220px;
+    height: 310px;
+  }
+  .card-img {
+    width: 100%;
+    height: auto;
+  }
+
+  .card-name {
+    font-size: 15px;
+    font-weight: 400;
+  }
+
+  .card-role {
+    font-size: 13px;
+    font-weight: 400;
+  }
+
+  .card-email {
+    font-size: 12px;
+    font-weight: 400;
+  }
+
+  .about-img img {
+    display: none;
+  }
+}
