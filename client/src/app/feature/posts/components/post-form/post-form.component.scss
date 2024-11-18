@@ -3,7 +3,7 @@
   margin: 50px auto;
   padding: 30px;
   background-color: var(--translucent-color);
-  border-radius: 12px;
+  border-radius: 5px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
   border: 1px solid var(--translucent-color);
 
@@ -24,7 +24,7 @@
       width: 100%;
       padding: 12px;
       border: none;
-      border-radius: 8px;
+      border-radius: 3px;
       font-size: 15px;
       transition: all 0.3s ease;
       color: var(--font-search-text);
@@ -46,13 +46,14 @@
   text-align: center;
 }
 
-@media only screen and (max-width: 440px) {
+@media (max-width: 440px) {
   .form {
-    width: 335px;
+    width: 410px;
   }
 }
-@media only screen and (max-width: 700px) {
+
+@media (max-width: 1000px) {
   .form {
-    width: 650px;
+    width: 950px;
   }
 }

@@ -77,7 +77,7 @@
 }
 
 //RESPONSE POST-CARD
-@media only screen and (max-width: 440px) {
+@media (max-width: 440px) {
   .description-post {
     padding: 25px;
 
@@ -88,7 +88,46 @@
   }
 
   .item-post {
-    width: 335px;
+    width: 380px;
+    height: 440px;
+  }
+
+  .image-post {
+    height: 200px;
+    width: 100%;
+  }
+
+  .post-info {
+    p {
+      font-size: 13px;
+    }
+    samp {
+      font-size: 13px;
+    }
+  }
+
+  .post-button-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    padding-top: 30px;
+  }
+}
+
+@media (max-width: 550px) {
+  .description-post {
+    padding: 25px;
+
+    h2,
+    p {
+      font-size: 16px;
+    }
+  }
+
+  .item-post {
+    width: 500px;
     height: 440px;
   }
 
