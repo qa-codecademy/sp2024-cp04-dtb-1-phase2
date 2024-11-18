@@ -46,14 +46,26 @@
   text-align: center;
 }
 
-@media (max-width: 440px) {
+@media (max-width: 1000px) {
   .form {
-    width: 410px;
+    width: 930px;
   }
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 800px) {
   .form {
-    width: 950px;
+    width: 730px;
+  }
+}
+
+@media (max-width: 600px) {
+  .form {
+    width: 530px;
+  }
+}
+
+@media (max-width: 440px) {
+  .form {
+    width: 380px;
   }
 }

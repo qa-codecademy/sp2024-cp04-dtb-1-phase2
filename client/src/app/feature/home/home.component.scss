@@ -73,7 +73,24 @@
 }
 
 //RESPONSE HOME PAGE
-@media only screen and (max-width: 440px) {
+
+@media only screen and (max-width: 1100px) {
+  .home-page {
+    .home-ads-container {
+      display: none;
+    }
+
+    .home-post-list-container {
+      padding: 0;
+    }
+
+    .search-input {
+      width: 335px;
+    }
+  }
+}
+
+@media only screen and (max-width: 1000px) {
   .home-page {
     .home-ads-container {
       display: none;
@@ -105,7 +122,7 @@
   }
 }
 
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 440px) {
   .home-page {
     .home-ads-container {
       display: none;

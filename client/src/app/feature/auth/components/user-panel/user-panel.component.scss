@@ -114,7 +114,7 @@
   justify-content: center;
 }
 
-@media only screen and (max-width: 440px) {
+@media only screen and (max-width: 615px) {
   .profile-panel {
     width: 340px;
     min-height: auto;
@@ -166,6 +166,7 @@
     margin-left: -20px;
   }
 }
+
 @media only screen and (max-width: 500px) {
   .profile-panel {
     width: 340px;
@@ -218,7 +219,8 @@
     margin-left: -20px;
   }
 }
-@media only screen and (max-width: 615px) {
+
+@media only screen and (max-width: 440px) {
   .profile-panel {
     width: 340px;
     min-height: auto;

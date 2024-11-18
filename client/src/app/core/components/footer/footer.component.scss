@@ -100,7 +100,267 @@ footer {
   }
 }
 
-@media only screen and (max-width: 440px) {
+@media (max-width: 900px) {
+  footer {
+    width: 870px;
+    font-size: 15px;
+
+    .footer-section {
+      gap: 30px;
+      margin: 0;
+      padding: 0;
+    }
+
+    menu {
+      h2 {
+        font-size: 18px;
+        margin-bottom: 23px;
+        margin-top: 40px;
+      }
+    }
+
+    li {
+      list-style-type: none;
+      margin-bottom: 16px;
+      font-size: 14px;
+    }
+
+    .social-links {
+      gap: 5px;
+      padding-left: 120px;
+
+      h2 {
+        font-size: 13px;
+        font-weight: 600;
+      }
+    }
+
+    .logo {
+      width: 100%;
+      height: auto;
+      padding-left: 110px;
+      padding-top: 15px;
+    }
+
+    .address {
+      padding-left: 120px;
+    }
+
+    .infothree {
+      gap: 10px;
+      font-size: 13px;
+    }
+  }
+}
+@media (max-width: 800px) {
+  footer {
+    width: 750px;
+    font-size: 15px;
+
+    .footer-section {
+      gap: 30px;
+      margin: 0;
+      padding: 0;
+    }
+
+    menu {
+      h2 {
+        font-size: 16px;
+        margin-bottom: 23px;
+        margin-top: 40px;
+      }
+    }
+
+    li {
+      list-style-type: none;
+      margin-bottom: 16px;
+      font-size: 14px;
+    }
+
+    .social-links {
+      gap: 5px;
+      padding-left: 120px;
+
+      h2 {
+        font-size: 13px;
+        font-weight: 600;
+      }
+    }
+
+    .logo {
+      width: 100%;
+      height: auto;
+      padding-left: 110px;
+      padding-top: 15px;
+    }
+
+    .address {
+      padding-left: 120px;
+    }
+
+    .infothree {
+      gap: 10px;
+      font-size: 13px;
+    }
+  }
+}
+@media (max-width: 700px) {
+  footer {
+    width: 680px;
+    font-size: 15px;
+
+    .footer-section {
+      gap: 0px;
+      margin: 0;
+      padding: 0;
+    }
+
+    menu {
+      h2 {
+        font-size: 18px;
+        margin-bottom: 23px;
+        margin-top: 40px;
+      }
+    }
+
+    li {
+      list-style-type: none;
+      margin-bottom: 16px;
+      font-size: 15px;
+    }
+
+    .social-links {
+      gap: 5px;
+      padding-left: 90px;
+
+      h2 {
+        font-size: 13px;
+        font-weight: 600;
+      }
+    }
+
+    .logo {
+      width: 100%;
+      height: auto;
+      padding-left: 80px;
+      padding-top: 15px;
+    }
+
+    .address {
+      padding-left: 90px;
+    }
+
+    .infothree {
+      gap: 10px;
+      font-size: 15px;
+    }
+  }
+}
+@media (max-width: 600px) {
+  footer {
+    width: 580px;
+    font-size: 15px;
+
+    .footer-section {
+      gap: 1px;
+      margin: 0;
+      padding: 0;
+    }
+
+    menu {
+      h2 {
+        font-size: 16px;
+        margin-bottom: 23px;
+        margin-top: 35px;
+      }
+    }
+
+    li {
+      list-style-type: none;
+      margin-bottom: 16px;
+      font-size: 14px;
+    }
+
+    .social-links {
+      gap: 5px;
+      padding-left: 90px;
+
+      h2 {
+        font-size: 13px;
+        font-weight: 600;
+      }
+    }
+
+    .logo {
+      width: 100%;
+      height: auto;
+      padding-left: 80px;
+      padding-top: 15px;
+    }
+
+    .address {
+      padding-left: 90px;
+    }
+
+    .infothree {
+      gap: 10px;
+      font-size: 15px;
+    }
+  }
+}
+@media (max-width: 500px) {
+  footer {
+    width: 470px;
+    font-size: 10px;
+
+    .footer-section {
+      gap: 0px;
+      margin: 0;
+      padding: 0;
+    }
+
+    menu {
+      h2 {
+        font-size: 14px;
+        margin-bottom: 23px;
+        margin-top: 30px;
+      }
+    }
+
+    li {
+      list-style-type: none;
+      margin-bottom: 16px;
+      font-size: 11px;
+    }
+
+    .social-links {
+      gap: 5px;
+      padding-left: 60px;
+
+      h2 {
+        font-size: 13px;
+        font-weight: 600;
+      }
+    }
+
+    .logo {
+      width: 100%;
+      height: auto;
+      padding-left: 50px;
+      padding-top: 15px;
+    }
+
+    .address {
+      padding-left: 60px;
+    }
+
+    .infothree {
+      gap: 10px;
+      font-size: 15px;
+    }
+  }
+}
+@media (max-width: 440px) {
   footer {
     width: 375px;
     font-size: 10px;

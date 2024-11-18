@@ -23,7 +23,7 @@
       width: 100%;
       padding: 12px;
       border: none;
-      border-radius: 8px;
+      border-radius: 3px;
       font-size: 15px;
       transition: all 0.3s ease;
       color: var(--font-search-text);
@@ -49,13 +49,13 @@
   text-align: center;
 }
 
-@media only screen and (max-width: 440px) {
+@media only screen and (max-width: 550px) {
   .form {
     width: 335px;
   }
 }
 
-@media only screen and (max-width: 550px) {
+@media only screen and (max-width: 440px) {
   .form {
     width: 335px;
   }
