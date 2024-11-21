@@ -34,8 +34,6 @@ export class LoginComponent {
 
     if (this.loginForm.invalid) return;
 
-    console.log(this.loginForm.value);
-
     this.authService.loginUser({
       email: this.loginForm.value.email,
       password: this.loginForm.value.password,

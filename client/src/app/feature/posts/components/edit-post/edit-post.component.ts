@@ -46,7 +46,6 @@ export class EditPostComponent implements OnInit {
   }
 
   onEditPost(editPostData: UpdatePostReq) {
-    console.log('id', this.selectedPost().id);
     this.postsService.editPost(this.selectedPost().id, editPostData);
   }
 

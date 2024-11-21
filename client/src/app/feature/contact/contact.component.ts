@@ -42,8 +42,6 @@ export class ContactComponent {
 
     if (this.contactForm.invalid) return;
 
-    console.log(this.contactForm.value);
-
     const contactReq: ContactModel = {
       firstName: this.contactForm.controls.firstName.value,
       lastName: this.contactForm.controls.lastName.value,

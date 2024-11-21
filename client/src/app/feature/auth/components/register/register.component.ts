@@ -73,7 +73,6 @@ export class RegisterComponent {
   }
 
   emailValidator(control: FormControl): { [key: string]: boolean } | null {
-    console.log('email validator', isEmail(control.value));
     if (!isEmail(control.value)) {
       return { validEmail: true };
     }
@@ -99,8 +98,6 @@ export class RegisterComponent {
     this.isSubmitted.set(true);
 
     if (this.registerForm.invalid) return;
-
-    console.log(this.registerForm.value);
 
     const registerRequest: RegisterReq = {
       firstName: this.registerForm.value.firstName,

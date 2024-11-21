@@ -85,8 +85,6 @@ export class UserDetailsFormComponent {
     this.userDetailsFrom.markAllAsTouched();
     this.isSubbmited.set(true);
 
-    console.log(this.userDetailsFrom.invalid);
-
     if (this.userDetailsFrom.invalid) return;
 
     const userDetailsData: CreateUserDetailsReq = {

@@ -28,7 +28,6 @@ export class AuthService {
   registerUser(request: RegisterReq) {
     this.apiService.registerUser(request).subscribe({
       next: () => {
-        console.log('User registered');
         this.notificationsService.showToast(
           'Successfully registered, please log in with your new account!',
           true

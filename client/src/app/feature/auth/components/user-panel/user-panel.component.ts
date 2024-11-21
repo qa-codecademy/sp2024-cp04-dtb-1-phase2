@@ -73,13 +73,10 @@ export class UserPanelComponent implements OnInit {
   }
 
   onSubmitChangePassForm() {
-    console.log('click');
     this.changePasswordForm.markAllAsTouched();
     this.isSubmitted.set(true);
 
     if (this.changePasswordForm.invalid) return;
-
-    console.log(this.changePasswordForm.value);
 
     this.authService.updateUserPassword(
       this.user().id,

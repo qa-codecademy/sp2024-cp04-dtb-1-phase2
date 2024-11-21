@@ -71,8 +71,6 @@ export class PostFormComponent {
     this.postForm.markAllAsTouched();
     this.isSubbmited.set(true);
 
-    console.log(this.postForm.value);
-
     if (this.postForm.invalid) return;
 
     this.isPreviewed.set(true);
@@ -83,8 +81,6 @@ export class PostFormComponent {
   onFormSubbmit() {
     this.postForm.markAllAsTouched();
 
-    console.log(this.postForm.value);
-
     if (this.postForm.invalid) return;
 
     const createPostData = {
@@ -94,8 +90,6 @@ export class PostFormComponent {
       text: this.postForm.get('text').value,
       tags: this.postForm.get('tags').value.split(','),
     };
-
-    console.log(createPostData);
 
     this.subbmitOutput.emit(createPostData);
   }
@@ -117,8 +111,6 @@ export class PostFormComponent {
   // }
 
   onFileSelected(event: any): void {
-    console.log('on image file change');
-    console.log(event);
     const file = event.target.files[0];
     if (file) {
       this.convertFileToBase64(file);
