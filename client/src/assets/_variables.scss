@@ -1,0 +1,55 @@
+.dark-theme {
+  --background-color: linear-gradient(
+    114.9deg,
+    rgb(34, 34, 34) 10%,
+    rgb(0, 40, 60) 28.9%,
+    rgb(0, 143, 213) 93.8%
+  );
+  --translucent-color: rgba(255, 255, 255, 0.1);
+  --font-color: #fff;
+  --link-color: darkblue;
+  --font-blue: #007bff;
+  --font-search-icon: #2b2b2b;
+  --font-search-text: #2b2b2b;
+  --search-input: #fff;
+  --error: #800000;
+  --raiting-star: #ffa534;
+  --delete-edit-button-font: #fff;
+  --acitve-backgruon: #fff;
+  --active-color: #007bff;
+  --info-font: white;
+  --hamburger-menu-font: #2b2b2b;
+
+  //Button color
+  --background-color-button: #e9ecef;
+  --color-font: #343a40;
+  --background-color-hover: #b7c4cf;
+}
+
+.light-theme {
+  --background-color: linear-gradient(
+    108.1deg,
+    rgb(0, 40, 60) 3%,
+    rgb(167, 220, 225) 70%,
+    rgb(217, 239, 242) 93.4%
+  );
+  --translucent-color: rgba(255, 255, 255, 0.1);
+  --link-color: darkblue;
+  --font-color: #20262e;
+  --font-blue: #21209c;
+  --search-input: #fff;
+  --font-search-icon: #2b2b2b;
+  --font-search-text: #2b2b2b;
+  --error: #800000;
+  --raiting-star: #c07f00;
+  --delete-edit-button-font: #fff;
+  --acitve-backgruon: #fff;
+  --active-color: #007bff;
+  --info-font: #2b2b2b;
+  --hamburger-menu-font: #2b2b2b;
+
+  //Button color
+  --background-color-button: #e9ecef;
+  --color-font: #343a40;
+  --background-color-hover: #b7c4cf;
+}

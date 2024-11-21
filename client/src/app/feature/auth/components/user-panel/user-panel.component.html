@@ -1,0 +1,115 @@
+<section class="profile-page">
+  <div class="profile-panel">
+    <div class="profile-panel-infomations-container">
+      <div class="profile-panel-infomations-nav">
+        <div
+          class="profile-panel-nav-container"
+          (click)="onPersonalInfoClick()"
+          [ngStyle]="{
+            'border-bottom': !isAuthInfoShown() ? '2px solid' : 'none'
+          }"
+        >
+          <h2>Personal information</h2>
+        </div>
+        <div
+          class="profile-panel-nav-container"
+          (click)="onUserInfoClick()"
+          [ngStyle]="{
+            'border-bottom': isAuthInfoShown() ? '2px solid' : 'none'
+          }"
+        >
+          <h2>Account information</h2>
+        </div>
+      </div>
+      <div class="profile-panel-informations" *ngIf="!isAuthInfoShown()">
+        <div class="profile-panel-info-row">
+          <strong>Full name:</strong>
+          <div class="info-row-data-div">
+            {{ user().firstName }} {{ user().lastName }}
+          </div>
+        </div>
+        <div class="profile-panel-info-row">
+          <strong>Date of birth:</strong>
+          <div class="info-row-data-div">
+            {{ user().userDetails?.dateOfBirth }}
+          </div>
+        </div>
+        <div class="profile-panel-info-row">
+          <strong>Age:</strong>
+          <div class="info-row-data-div">{{ user().userDetails?.age }}</div>
+        </div>
+        <div class="profile-panel-info-row">
+          <strong>Gender:</strong>
+          <div class="info-row-data-div">{{ user().userDetails?.gender }}</div>
+        </div>
+        <div class="profile-panel-info-row">
+          <strong>Phone number:</strong>
+          <div class="info-row-data-div">
+            {{ user().userDetails?.phoneNumber }}
+          </div>
+        </div>
+        <div class="profile-panel-info-row">
+          <strong>Country:</strong>
+          <div class="info-row-data-div">{{ user().userDetails?.country }}</div>
+        </div>
+        <div class="profile-panel-info-row">
+          <strong>City:</strong>
+          <div class="info-row-data-div">{{ user().userDetails?.city }}</div>
+        </div>
+      </div>
+      <form
+        class="profile-panel-informations"
+        *ngIf="isAuthInfoShown()"
+        [formGroup]="changePasswordForm"
+      >
+        <div class="profile-panel-info-row">
+          <strong>Username:</strong>
+          <div class="info-row-data-div">
+            {{ user().username }}
+          </div>
+        </div>
+        <div class="profile-panel-info-row">
+          <strong>Email:</strong>
+          <div class="info-row-data-div">{{ user().email }}</div>
+        </div>
+        <div class="profile-panel-info-row">
+          <strong>New Password:</strong>
+          <input
+            formControlName="newPassword"
+            type="text"
+            class="info-row-data-div"
+          />
+        </div>
+        <div class="profile-panel-info-row">
+          <strong>Confirm password:</strong>
+          <input
+            formControlName="confirmNewPassword"
+            type="text"
+            class="info-row-data-div"
+          />
+        </div>
+        @if(changePasswordForm.controls.newPassword.touched &&
+        changePasswordForm.controls.newPassword.errors?.passwordMismatch) {
+        <p class="form-error">Passwords must match</p>
+        }
+      </form>
+      <div class="profile-panel-controls-container">
+        @if(isAuthInfoShown()){
+        <app-button
+          text="Change password"
+          (btnClick)="onSubmitChangePassForm()"
+        />
+        } @if(!isAuthInfoShown() && !user().userDetails){
+        <app-button text="Add details" routerLink="/add-user-details" />
+        } @else if(!isAuthInfoShown() && user().userDetails) {
+        <app-button text="Edit details" routerLink="/edit-user-details" />
+        }
+        <app-button
+          text="Logout"
+          (btnClick)="onLogoutClick()"
+          [style]="{ borderRadius: '5px', width: '120px' }"
+        />
+      </div>
+    </div>
+  </div>
+</section>

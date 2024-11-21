@@ -1,0 +1,30 @@
+.privacy-page {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 40px;
+  background: var(--translucent-color);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+
+  h1 {
+    text-align: center;
+  }
+
+  h2 {
+    color: var(--font-color);
+  }
+
+  p,
+  ul {
+    color: var(--font-color);
+    line-height: 1.6;
+  }
+
+  ul {
+    margin-left: 20px;
+  }
+
+  li {
+    margin-bottom: 10px;
+  }
+}

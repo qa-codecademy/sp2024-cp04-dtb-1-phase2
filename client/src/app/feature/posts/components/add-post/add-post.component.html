@@ -1,0 +1,48 @@
+<section class="add-post-page">
+  <div class="form-container">
+    <h2>Add your post</h2>
+    <app-post-form
+      (previewDataOutput)="onFromData($event)"
+      (subbmitOutput)="onAddPost($event)"
+    />
+  </div>
+  @if(addPostData()){
+  <div class="preview-container">
+    <div class="container_page">
+      <div class="post-page-header-container">
+        <div>
+          <h2 class="post-page-hader-h2">{{ addPostData().title }}</h2>
+          <small>Date by USER</small>
+        </div>
+        <div class="post-button-controls-container">
+          <button class="edit-button">
+            <i class="fa-regular fa-pen-to-square"></i>
+          </button>
+          <button class="delete-button">
+            <i class="fa-solid fa-trash"></i>
+          </button>
+        </div>
+      </div>
+      <div>
+        <div class="post-page-image-div-container">
+          <img src="{{ addPostData().image }}" class="main-image" />
+        </div>
+        <div class="post-page-text-div-container">
+          <p>{{ addPostData().text }}</p>
+          <p><strong>Tags:</strong> {{ addPostData().tags }}</p>
+
+          <div class="rating-container">
+            <app-rating-form-panel></app-rating-form-panel>
+          </div>
+        </div>
+      </div>
+      <div class="post-comments-container">
+        <h2>Comments</h2>
+        <app-comment-form />
+      </div>
+    </div>
+  </div>
+  } @else {
+  <p>The post has not been previewed yet!</p>
+  }
+</section>

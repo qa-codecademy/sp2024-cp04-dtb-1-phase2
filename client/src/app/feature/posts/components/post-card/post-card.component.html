@@ -1,0 +1,34 @@
+<div class="container-post">
+  <div class="item-post">
+    <img src="{{ post().image }}" class="image-post" />
+    <div class="description-post">
+      <div class="description-post-title-text-container">
+        <h2>{{ post().title }}</h2>
+        <p class="paragraph">
+          {{ post().text }}
+        </p>
+        <div class="tags-container">
+          @for(tag of post().tags; track $index){
+          <span class="tag-span">#{{ tag }} </span>
+          }
+        </div>
+      </div>
+      <div class="post-button-container">
+        <app-button
+          class="button"
+          text="Learn more..."
+          (btnClick)="onLoadMoreClick()"
+        ></app-button>
+        <div class="post-info-container">
+          <p>{{ post().user.username }}</p>
+          <div class="post-info">
+            <p>{{ post().date | date }}</p>
+            <samp
+              >{{ postRating().toFixed(2) }}<i class="fa-regular fa-star"></i
+            ></samp>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

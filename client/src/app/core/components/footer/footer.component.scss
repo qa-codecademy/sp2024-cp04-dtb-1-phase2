@@ -1,0 +1,414 @@
+footer {
+  background: var(--background-color);
+  border-top-left-radius: 45%;
+  border-top-style: groove;
+  font-size: 16px;
+  color: var(--font-color);
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  .footer-section {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 80px;
+    margin: 0 auto;
+    max-width: 800px;
+    padding: 20px 10px 0 10px;
+  }
+
+  menu {
+    h2 {
+      padding-top: 15px;
+      padding-bottom: 12px;
+    }
+  }
+
+  li {
+    list-style-type: none;
+    margin-bottom: 16px;
+  }
+
+  .logo {
+    width: 260px;
+    height: auto;
+    margin-bottom: 15px;
+    margin-top: 15px;
+  }
+
+  .social-links {
+    display: flex;
+    flex-direction: row;
+
+    gap: 15px;
+  }
+  .social-links img {
+    width: 20px;
+    height: 20px;
+  }
+  .footer-contact-link {
+    cursor: pointer;
+  }
+  .footer-about-link {
+    cursor: pointer;
+  }
+  a {
+    color: var(--font-color);
+    text-decoration: none;
+    cursor: pointer;
+  }
+  a:hover {
+    color: var(--link-color);
+  }
+  .infothree {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    align-items: center;
+    width: 100%;
+    font-size: 15px;
+  }
+  .footer-botom {
+    min-height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    color: var(--font-color);
+    text-align: center;
+    font-size: 12px;
+    opacity: 1;
+  }
+  .footer-botom a {
+    color: var(--font-color);
+  }
+  .address {
+    padding-left: 10px;
+  }
+  .social-links {
+    padding-left: 10px;
+  }
+  .social-links h2 {
+    text-align: left;
+    color: var(--font-color);
+    margin-top: 0px;
+    margin-bottom: 16px;
+    opacity: 0.7;
+    font-size: 16px;
+    font-weight: 600;
+  }
+}
+
+@media (max-width: 900px) {
+  footer {
+    width: 870px;
+    font-size: 15px;
+
+    .footer-section {
+      gap: 30px;
+      margin: 0;
+      padding: 0;
+    }
+
+    menu {
+      h2 {
+        font-size: 18px;
+        margin-bottom: 23px;
+        margin-top: 40px;
+      }
+    }
+
+    li {
+      list-style-type: none;
+      margin-bottom: 16px;
+      font-size: 14px;
+    }
+
+    .social-links {
+      gap: 5px;
+      padding-left: 120px;
+
+      h2 {
+        font-size: 13px;
+        font-weight: 600;
+      }
+    }
+
+    .logo {
+      width: 100%;
+      height: auto;
+      padding-left: 110px;
+      padding-top: 15px;
+    }
+
+    .address {
+      padding-left: 120px;
+    }
+
+    .infothree {
+      gap: 10px;
+      font-size: 13px;
+    }
+  }
+}
+@media (max-width: 800px) {
+  footer {
+    width: 750px;
+    font-size: 15px;
+
+    .footer-section {
+      gap: 30px;
+      margin: 0;
+      padding: 0;
+    }
+
+    menu {
+      h2 {
+        font-size: 16px;
+        margin-bottom: 23px;
+        margin-top: 40px;
+      }
+    }
+
+    li {
+      list-style-type: none;
+      margin-bottom: 16px;
+      font-size: 14px;
+    }
+
+    .social-links {
+      gap: 5px;
+      padding-left: 120px;
+
+      h2 {
+        font-size: 13px;
+        font-weight: 600;
+      }
+    }
+
+    .logo {
+      width: 100%;
+      height: auto;
+      padding-left: 110px;
+      padding-top: 15px;
+    }
+
+    .address {
+      padding-left: 120px;
+    }
+
+    .infothree {
+      gap: 10px;
+      font-size: 13px;
+    }
+  }
+}
+@media (max-width: 700px) {
+  footer {
+    width: 680px;
+    font-size: 15px;
+
+    .footer-section {
+      gap: 0px;
+      margin: 0;
+      padding: 0;
+    }
+
+    menu {
+      h2 {
+        font-size: 18px;
+        margin-bottom: 23px;
+        margin-top: 40px;
+      }
+    }
+
+    li {
+      list-style-type: none;
+      margin-bottom: 16px;
+      font-size: 15px;
+    }
+
+    .social-links {
+      gap: 5px;
+      padding-left: 90px;
+
+      h2 {
+        font-size: 13px;
+        font-weight: 600;
+      }
+    }
+
+    .logo {
+      width: 100%;
+      height: auto;
+      padding-left: 80px;
+      padding-top: 15px;
+    }
+
+    .address {
+      padding-left: 90px;
+    }
+
+    .infothree {
+      gap: 10px;
+      font-size: 15px;
+    }
+  }
+}
+@media (max-width: 600px) {
+  footer {
+    width: 580px;
+    font-size: 15px;
+
+    .footer-section {
+      gap: 1px;
+      margin: 0;
+      padding: 0;
+    }
+
+    menu {
+      h2 {
+        font-size: 16px;
+        margin-bottom: 23px;
+        margin-top: 35px;
+      }
+    }
+
+    li {
+      list-style-type: none;
+      margin-bottom: 16px;
+      font-size: 14px;
+    }
+
+    .social-links {
+      gap: 5px;
+      padding-left: 90px;
+
+      h2 {
+        font-size: 13px;
+        font-weight: 600;
+      }
+    }
+
+    .logo {
+      width: 100%;
+      height: auto;
+      padding-left: 80px;
+      padding-top: 15px;
+    }
+
+    .address {
+      padding-left: 90px;
+    }
+
+    .infothree {
+      gap: 10px;
+      font-size: 15px;
+    }
+  }
+}
+@media (max-width: 500px) {
+  footer {
+    width: 470px;
+    font-size: 10px;
+
+    .footer-section {
+      gap: 0px;
+      margin: 0;
+      padding: 0;
+    }
+
+    menu {
+      h2 {
+        font-size: 14px;
+        margin-bottom: 23px;
+        margin-top: 30px;
+      }
+    }
+
+    li {
+      list-style-type: none;
+      margin-bottom: 16px;
+      font-size: 11px;
+    }
+
+    .social-links {
+      gap: 5px;
+      padding-left: 60px;
+
+      h2 {
+        font-size: 13px;
+        font-weight: 600;
+      }
+    }
+
+    .logo {
+      width: 100%;
+      height: auto;
+      padding-left: 50px;
+      padding-top: 15px;
+    }
+
+    .address {
+      padding-left: 60px;
+    }
+
+    .infothree {
+      gap: 10px;
+      font-size: 15px;
+    }
+  }
+}
+@media (max-width: 440px) {
+  footer {
+    width: 375px;
+    font-size: 10px;
+
+    .footer-section {
+      gap: 0px;
+      margin: 0;
+      padding: 0;
+    }
+
+    menu {
+      h2 {
+        font-size: 16px;
+        margin-bottom: 15px;
+        margin-top: 15px;
+      }
+    }
+
+    li {
+      list-style-type: none;
+      margin-bottom: 16px;
+      font-size: 11px;
+    }
+
+    .social-links {
+      gap: 5px;
+      padding-left: 50px;
+
+      h2 {
+        font-size: 13px;
+        font-weight: 600;
+      }
+    }
+
+    .logo {
+      width: 100%;
+      height: auto;
+      padding-left: 50px;
+      padding-top: 15px;
+    }
+
+    .address {
+      padding-left: 50px;
+    }
+
+    .infothree {
+      gap: 10px;
+      font-size: 15px;
+    }
+  }
+}

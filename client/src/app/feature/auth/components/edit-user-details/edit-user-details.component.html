@@ -1,0 +1,7 @@
+<section class="edit-user-details-page">
+  <h2>Edit user details</h2>
+  <app-user-details-form
+    [editUserDetailsData]="currentUser()"
+    (subbmitOutput)="onEdituserDetails($event)"
+  ></app-user-details-form>
+</section>

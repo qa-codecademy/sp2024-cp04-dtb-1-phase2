@@ -1,0 +1,36 @@
+.filters-container {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  select {
+    width: 150px;
+    height: 35px;
+    border: 2px solid var(--translucent-color);
+    border-radius: 50px;
+    cursor: pointer;
+    background-color: var(--search-input);
+    color: var(--font-search-text);
+  }
+
+  button {
+    width: 150px;
+    height: 35px;
+    border: 2px solid var(--translucent-color);
+    border-radius: 50px;
+    cursor: pointer;
+    background-color: var(--search-input);
+    color: var(--font-search-text);
+  }
+}
+
+@media only screen and (max-width: 440px) {
+  .filters-container {
+    select {
+      width: 100px;
+    }
+    button {
+      width: 98px;
+    }
+  }
+}

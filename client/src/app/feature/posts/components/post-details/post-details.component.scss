@@ -1,0 +1,129 @@
+.container_page {
+  margin: 0 auto;
+  padding: 30px;
+  max-width: 1000px;
+  background-color: var(--translucent-color);
+  border-radius: 10px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+  transition: box-shadow 0.3s ease;
+
+  .post-page-header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    border-bottom: 1px solid var(--font-color);
+    padding-bottom: 15px;
+
+    h2.post-page-hader-h2 {
+      font-size: 28px;
+      font-weight: 600;
+      color: var(--font-color);
+      margin: 0;
+    }
+
+    small {
+      font-size: 14px;
+      color: var(--font-color);
+    }
+
+    .post-button-controls-container {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      .edit-button,
+      .delete-button {
+        background-color: var(--font-blue);
+        border: none;
+        color: var(--delete-edit-button-font);
+        padding: 10px 15px;
+        font-size: 18px;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.2s ease;
+
+        &:hover {
+          background-color: var(--font-blue);
+        }
+      }
+
+      .delete-button {
+        background-color: #d2122e;
+
+        &:hover {
+          background-color: #b31b1b;
+        }
+      }
+    }
+  }
+
+  .post-page-image-div-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+
+    .main-image {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      transition: transform 0.4s ease, box-shadow 0.2s ease;
+
+      &:hover {
+        transform: scale(1.02);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      }
+    }
+  }
+
+  .post-page-text-div-container {
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    font-size: 16px;
+    color: var(--font-color);
+
+    strong {
+      font-weight: 800;
+      color: var(--link-color);
+    }
+
+    .rating-container {
+      margin-top: 25px;
+      display: flex;
+      justify-content: flex-end;
+      color: var(--raiting-star);
+    }
+  }
+
+  .post-comments-container {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid var(--font-color);
+
+    h2 {
+      font-size: 23px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: var(--font-color);
+      text-align: center;
+    }
+
+    .load-more-button-container {
+      margin-top: 25px;
+      text-align: center;
+    }
+  }
+}
+
+.before-login-message-container {
+  text-align: center;
+
+  p {
+    color: var(--font-color);
+  }
+}
+
+.disable-rating {
+  pointer-events: none;
+}

@@ -1,0 +1,51 @@
+<form class="form" [formGroup]="postForm" (ngSubmit)="onFormSubbmit()">
+  <div class="form-group">
+    <label for="title">Title</label>
+    <input
+      id="title"
+      type="text"
+      formControlName="title"
+      placeholder="Your post title..."
+    />
+  </div>
+  <div class="form-group">
+    <label for="image">Image</label>
+    <input
+      id="image"
+      type="file"
+      (change)="onFileSelected($event)"
+      accept="image/*"
+    />
+  </div>
+  <div class="form-group">
+    <label for="text">Text</label>
+    <textarea
+      id="text"
+      type="text"
+      formControlName="text"
+      placeholder="Your post text..."
+    ></textarea>
+  </div>
+  <div class="form-group">
+    <label for="tags">Tags</label>
+    <input
+      type="text"
+      formControlName="tags"
+      placeholder="It,Computers,Network..."
+    />
+  </div>
+  <div class="error-form-message-container">
+    @if(isSubbmited() && postForm.invalid && postForm.touched){
+    <p class="form-error">All fileds are required!</p>
+    }
+  </div>
+  <div class="login-form-button-div">
+    @if(isPreviewed()){ @if(editPostData()){
+    <app-button text="Edit post" class="register-button" type="submit" />
+    } @else {
+    <app-button text="Add post" class="register-button" type="submit" />
+    } } @else {
+    <app-button text="Preview" type="button" (btnClick)="onPreviewClick()" />
+    }
+  </div>
+</form>

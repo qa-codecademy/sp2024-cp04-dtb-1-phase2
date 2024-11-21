@@ -1,0 +1,25 @@
+<div class="comments-list">
+  <ul>
+    @for(comment of comments(); track comment.id) {
+    <li class="comment-item">
+      <div class="comment-info">
+        <span>{{ comment.text }}</span>
+        @if(comment.user.id === currentUser().id){
+        <div class="post-button-controls-container">
+          <button class="delete-button" (click)="onCommentDelete(comment.id)">
+            <i class="fa-solid fa-trash"></i>
+          </button>
+        </div>
+        }
+      </div>
+      <div class="info-date">
+        {{ comment.date | date : "short" }}
+        <span>
+          <i class="fa-solid fa-user"></i>
+          {{ comment.user.username }}
+        </span>
+      </div>
+    </li>
+    }
+  </ul>
+</div>

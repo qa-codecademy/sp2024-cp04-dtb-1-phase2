@@ -1,0 +1,63 @@
+<form class="form" [formGroup]="userDetailsFrom" (ngSubmit)="onSubmitForm()">
+  <div class="form-group">
+    <label for="phoneNumber">Phone Number</label>
+    <input
+      id="phoneNumber"
+      type="text"
+      formControlName="phoneNumber"
+      placeholder="Your phone number (123-456-789)"
+    />
+  </div>
+  <div class="form-group">
+    <label for="age">Age</label>
+    <input id="age" formControlName="age" type="text" placeholder="Your age" />
+  </div>
+  <div class="form-group">
+    <label for="dateOfBirth">Date of birth</label>
+    <input
+      type="text"
+      id="dateOfBirth"
+      formControlName="dateOfBirth"
+      placeholder="Your date of birth"
+    />
+  </div>
+  <div class="form-group">
+    <label for="gender">Gender</label>
+    <input
+      type="text"
+      id="gender"
+      placeholder="Your gender (male or female)"
+      formControlName="gender"
+    />
+  </div>
+  <div class="form-group">
+    <label for="city">City</label>
+    <input
+      type="text"
+      id="city"
+      formControlName="city"
+      placeholder="Your city"
+    />
+  </div>
+  <div class="form-group">
+    <label for="country">Country</label>
+    <input
+      type="text"
+      id="country"
+      formControlName="country"
+      placeholder="Your country"
+    />
+  </div>
+  <div class="error-form-message-container">
+    @if(isSubbmited() && userDetailsFrom.touched && userDetailsFrom.invalid ){
+    <p class="form-error">All fileds are required!</p>
+    }
+  </div>
+  <div class="login-form-button-div">
+    @if(editUserDetailsData()){
+    <app-button text="Edit user details" type="submit" />
+    } @else {
+    <app-button text="Add user details" type="submit" />
+    }
+  </div>
+</form>
