@@ -29,6 +29,10 @@ export class PostService {
     return this.postsRepo.save(newPost);
   }
 
+  async createMany(createPostDto: CreatePostDto[]) {
+    return this.postsRepo.save(createPostDto);
+  }
+
   async findAll(filters: PostsFilters) {
     const filterConfig: FindManyOptions<Post> = {
       relations: {

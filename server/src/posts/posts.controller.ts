@@ -29,6 +29,11 @@ export class PostsController {
     return this.postsService.create(createPostDto);
   }
 
+  @Post('many')
+  createMany(@Body() createPostDto: CreatePostDto[]) {
+    return this.postsService.createMany(createPostDto);
+  }
+
   @Get()
   findAll(
     @Query('firstResult') firstResult: string,
